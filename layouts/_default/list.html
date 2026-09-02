@@ -1,0 +1,16 @@
+{{ define "main" }}
+  <div class="container page-shell">
+    <header class="page-header">
+      <p class="eyebrow">Archive</p>
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p>{{ . }}</p>{{ end }}
+    </header>
+    {{ if .Pages }}
+      <div class="post-list">
+        {{ range .Pages.ByDate.Reverse }}{{ partial "post-card.html" . }}{{ end }}
+      </div>
+    {{ else }}
+      <div class="empty-state"><p>아직 표시할 글이 없습니다.</p></div>
+    {{ end }}
+  </div>
+{{ end }}

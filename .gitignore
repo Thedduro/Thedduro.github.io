@@ -1,0 +1,10 @@
+# Hugo build output and generated resources
+/public/
+/resources/_gen/
+/hugo_stats.json
+/.hugo_build.lock
+
+# Local editor and OS files
+/.idea/
+/.vscode/
+.DS_Store
