@@ -1,0 +1,68 @@
+{{ define "main" }}
+  <div class="container">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="profile-mark" aria-hidden="true">T</div>
+      <div class="hero-copy">
+        <p class="eyebrow">{{ site.Params.authorName }} · {{ site.Params.profileTitle }}</p>
+        <h1 id="hero-title">데이터를 흐르게 하고,<br><span>가치를 시스템으로<br>만듭니다.</span></h1>
+        <p class="hero-description">{{ site.Params.profileBio }}</p>
+        <p class="profile-context">{{ site.Params.company }} <span aria-hidden="true">·</span> {{ site.Params.location }}</p>
+        {{ partial "social-links.html" . }}
+      </div>
+    </section>
+
+    <section class="focus-section" aria-labelledby="focus-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">What I build</p>
+          <h2 id="focus-title">관심 영역</h2>
+        </div>
+        <a class="text-link" href="{{ "about/" | relURL }}">경험 더 보기 →</a>
+      </div>
+      <div class="focus-grid">
+        <article class="focus-card">
+          <span class="focus-number">01</span>
+          <div>
+            <h3>Data Platform</h3>
+            <p class="focus-stack">Kafka · Flink · Spark · Airflow</p>
+          </div>
+        </article>
+        <article class="focus-card">
+          <span class="focus-number">02</span>
+          <div>
+            <h3>Cloud & Backend</h3>
+            <p class="focus-stack">AWS · FastAPI · Django · Docker</p>
+          </div>
+        </article>
+        <article class="focus-card">
+          <span class="focus-number">03</span>
+          <div>
+            <h3>AI Systems</h3>
+            <p class="focus-stack">LangGraph · RAG · MLflow</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="recent-posts" aria-labelledby="recent-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Latest notes</p>
+          <h2 id="recent-title">최근 글</h2>
+        </div>
+        <a class="text-link" href="{{ "posts/" | relURL }}">모든 글 보기 →</a>
+      </div>
+      {{ $posts := where site.RegularPages "Section" "posts" }}
+      {{ if $posts }}
+        <div class="post-list">
+          {{ range first 6 $posts }}{{ partial "post-card.html" . }}{{ end }}
+        </div>
+      {{ else }}
+        <div class="empty-state">
+          <p>아직 공개된 글이 없습니다.</p>
+          <code>hugo new content posts/첫-글.md</code>
+        </div>
+      {{ end }}
+    </section>
+  </div>
+{{ end }}

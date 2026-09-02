@@ -1,0 +1,14 @@
+<article class="post-card">
+  <div class="post-card-meta">
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006. 01. 02." }}</time>
+    <span aria-hidden="true">·</span>
+    <span>{{ .ReadingTime }}분</span>
+  </div>
+  <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+  {{ with (.Params.description | default (.Summary | plainify)) }}<p>{{ . | truncate 150 }}</p>{{ end }}
+  {{ with .GetTerms "tags" }}
+    <ul class="tag-list" aria-label="태그">
+      {{ range first 4 . }}<li><a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a></li>{{ end }}
+    </ul>
+  {{ end }}
+</article>

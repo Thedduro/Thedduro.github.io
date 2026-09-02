@@ -1,0 +1,44 @@
+{{ define "main" }}
+  <div class="container article-shell">
+    <article class="article">
+      <header class="article-header">
+        {{ with .Params.categories }}<p class="eyebrow">{{ delimit . " · " }}</p>{{ end }}
+        <h1>{{ .Title }}</h1>
+        {{ with .Description }}<p class="article-description">{{ . }}</p>{{ end }}
+        {{ if eq .Section "posts" }}
+          <div class="article-meta">
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006. 01. 02." }}</time>
+            <span aria-hidden="true">·</span>
+            <span>읽는 데 {{ .ReadingTime }}분</span>
+            {{ if .Draft }}<span class="draft-badge">초안</span>{{ end }}
+          </div>
+        {{ end }}
+      </header>
+
+      {{ if in .TableOfContents "<li>" }}
+        <details class="mobile-toc">
+          <summary>목차</summary>
+          {{ .TableOfContents }}
+        </details>
+      {{ end }}
+
+      <div class="article-layout{{ if not (in .TableOfContents "<li>") }} without-toc{{ end }}">
+        <div class="prose">{{ .Content }}</div>
+        {{ if in .TableOfContents "<li>" }}
+          <aside class="toc" aria-label="목차">
+            <p>목차</p>
+            {{ .TableOfContents }}
+          </aside>
+        {{ end }}
+      </div>
+
+      {{ with .GetTerms "tags" }}
+        <footer class="article-footer">
+          <ul class="tag-list" aria-label="태그">
+            {{ range . }}<li><a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a></li>{{ end }}
+          </ul>
+        </footer>
+      {{ end }}
+    </article>
+  </div>
+{{ end }}
