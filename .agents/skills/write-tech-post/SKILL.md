@@ -55,7 +55,7 @@ date: 2026-09-21T09:00:00+09:00
 draft: true
 description: "글에서 다루는 문제와 핵심 내용을 담은 짧은 설명."
 categories: ["Data Engineering"]
-tags: ["Spark", "PySpark"]
+tags: ["Data Engineering", "Spark", "PySpark"]
 slug: "example-topic"
 ---
 ```
@@ -69,7 +69,10 @@ slug: "example-topic"
 
 - 키는 복수형 `categories`, `tags`이며 값은 문자열 배열이다. 비어 있으면 `[]`를 사용한다.
 - 원본 게시물에서 현재 사용 중인 값을 먼저 확인한다. 현시점에는 카테고리 `Data Engineering`, 태그 `Data Engineering`, `Blog`, `Spark`, `PySpark`가 있다. 고정 허용 목록은 아니다.
-- 기존 표기를 우선 재사용하고 대소문자·띄어쓰기·언어 표기를 불필요하게 혼용하지 않는다. 카테고리는 큰 주제, 태그는 실제 다룬 기술과 세부 주제로 고른다.
+- 기존 표기를 우선 재사용하고 대소문자·띄어쓰기·언어 표기를 불필요하게 혼용하지 않는다. 카테고리는 큰 주제로 고른다.
+- 태그는 **대표 분야 → 구체적인 기술·세부 주제** 순서로 작성한다. 첫 태그는 글의 중심 분야 하나로 정하고, 뒤에는 본문에서 실제 다룬 기술과 주제를 둔다. 카테고리와 같은 분야를 첫 태그에 넣어도 된다.
+- 분야 표기는 기존 `Data Engineering`에 맞춰 `Cloud`, `Frontend`, `Backend`처럼 일관된 영문을 사용한다. 이는 확장 가능한 예시이며 고정 허용 목록이 아니다. 여러 분야에 걸치면 글의 주된 관점에 맞는 분야를 맨 앞에 두고, 다른 분야는 실제 내용상 필요할 때만 추가한다.
+- 예: Spark 글은 `["Data Engineering", "Spark", "PySpark"]`, 클라우드 인프라 글은 `["Cloud", "AWS", "Terraform"]`, 프론트엔드 글은 `["Frontend", "React"]`, 백엔드 글은 `["Backend", "Spring Boot"]`. YAML 배열 순서를 유지한다.
 - 적절한 기존 값이 없으면 새 값을 추가할 수 있다. 관련 없는 태그나 기존 글의 분류 일괄 변경은 하지 않는다. 개수 제한은 없지만 목록 카드에는 태그가 최대 4개 표시된다.
 
 ### 본문, 코드, 이미지
