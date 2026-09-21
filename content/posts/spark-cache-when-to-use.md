@@ -1,7 +1,7 @@
 ---
 title: "Spark cache(), 어디에 붙여야 효과가 있을까?"
 date: 2026-09-21T14:22:11+09:00
-draft: true
+draft: false
 description: "같은 DataFrame을 다시 사용해도 계산이 반복되는 이유부터, cache()를 붙일 위치와 비용까지 PySpark 예제로 이해해 본다."
 categories: ["Data Engineering"]
 tags: ["Data Engineering", "Spark", "PySpark"]
