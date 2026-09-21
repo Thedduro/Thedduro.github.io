@@ -131,6 +131,7 @@ img {
 .logo-mark {
   width: 31px;
   height: 31px;
+  object-fit: cover;
   border-radius: 9px;
   font-size: 14px;
 }
@@ -214,6 +215,7 @@ img {
 .profile-mark {
   width: 136px;
   height: 136px;
+  object-fit: cover;
   border-radius: 34px;
   box-shadow: var(--shadow);
   font-size: 56px;
