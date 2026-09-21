@@ -6,7 +6,7 @@ name_en: "Sunwoo Lim"
 headline: "분석에서 시작해,\n시스템으로 이어갑니다."
 experience:
   - organization: "PTKOREA"
-    role: "Data Engineer"
+    role: "Data Engineer · Data Backend"
     period: "2026.07 — 현재"
     current: true
     details:
