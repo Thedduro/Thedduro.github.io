@@ -29,7 +29,7 @@ experience:
     period: "2019.02 — 2024.08"
 projects:
   - name: "One Bite Article"
-    category: "Data Pipeline · AI"
+    category: "Data Pipeline"
     summary: "AI 기반 IT 뉴스 학습 플랫폼"
     highlights:
       - "Airflow 기반 기사 수집·선별·본문 저장·AI 처리 API 연계 자동화"
@@ -37,6 +37,7 @@ projects:
       - "누적 순위 점수·등장 빈도·갱신 시점 기반 상위 5개 기사 선별"
       - "Docker 기반 Airflow 실행 환경 및 DAG 재시도 정책 구성"
     github: "https://github.com/OneBiteArticle"
+    architecture: "images/projects/oba-architecture.png"
     stack: ["Airflow", "Python", "Docker", "MySQL", "MongoDB"]
   - name: "ROMO"
     category: "Infrastructure · CI/CD"
@@ -59,7 +60,7 @@ projects:
       - "LangGraph 기반 난이도별 경제 퀴즈 생성·검증·재생성·저장 흐름 구성"
     github: "https://github.com/akku-bank"
     architecture: "images/projects/akbk-architecture.png"
-    stack: ["FastAPI", "LangChain", "LangGraph", "Airflow", "PostgreSQL", "pgvector"]
+    stack: ["FastAPI", "LangChain", "LangGraph", "Kafka", "Spark", "Airflow", "PostgreSQL", "pgvector"]
   - name: "Barmi"
     category: "AI Gateway · Infrastructure"
     summary: "청각장애인을 위한 AI 영어 발음 학습 플랫폼"
