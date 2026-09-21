@@ -1,0 +1,120 @@
+{{ define "main" }}
+  <div class="container about-page">
+    <header class="about-intro">
+      <div class="about-intro-copy">
+        <p class="eyebrow">About · {{ site.Params.profileTitle }}</p>
+        <h1>{{ site.Params.authorName }} <span>{{ .Params.name_en }}</span></h1>
+        <p class="about-headline">{{ .Params.headline }}</p>
+        <div class="about-story">{{ .Content }}</div>
+        {{ partial "social-links.html" . }}
+      </div>
+      <figure class="about-portrait">
+        <button class="about-portrait-toggle" type="button" aria-label="프로필 사진 전환" aria-pressed="false">
+          <span class="about-portrait-inner">
+            <img class="about-portrait-front" src="{{ "profile.jpeg" | relURL }}" alt="{{ site.Params.authorName }} 야외 프로필 사진" width="360" height="440">
+            <img class="about-portrait-back" src="{{ "images/about/profile-new.jpg" | relURL }}" alt="{{ site.Params.authorName }} 스튜디오 프로필 사진" width="2362" height="3037" aria-hidden="true">
+          </span>
+        </button>
+        <figcaption><span>{{ site.Params.authorName }}</span><span>{{ site.Params.profileTitle }}</span></figcaption>
+      </figure>
+    </header>
+
+    <nav class="about-nav" aria-label="소개 페이지 바로가기">
+      <a href="#experience">경력과 교육 <span aria-hidden="true">↗</span></a>
+      <a href="#projects">프로젝트 <span aria-hidden="true">↗</span></a>
+      <a href="#tools">기술 <span aria-hidden="true">↗</span></a>
+      <a href="#awards">수상 <span aria-hidden="true">↗</span></a>
+      <a href="#certifications">자격증 <span aria-hidden="true">↗</span></a>
+    </nav>
+
+    <section class="about-section" id="experience" aria-labelledby="experience-title">
+      <div class="about-section-heading">
+        <p class="eyebrow">01 / Experience</p>
+        <h2 id="experience-title">지나온 과정</h2>
+        <p>분석에서 개발로,<br>데이터를 다루는 범위를 넓혀왔습니다.</p>
+      </div>
+      <ol class="about-timeline">
+        {{ range .Params.experience }}
+          <li class="about-timeline-item{{ if .current }} is-current{{ end }}">
+            <div class="about-period">{{ .period }}{{ if .current }}<span class="about-current">현재</span>{{ end }}</div>
+            <h3>{{ .organization }}</h3>
+            <p class="about-role">{{ .role }}</p>
+            {{ with .details }}<ul>{{ range . }}<li>{{ . }}</li>{{ end }}</ul>{{ end }}
+          </li>
+        {{ end }}
+      </ol>
+    </section>
+
+    <section class="about-section" id="projects" aria-labelledby="projects-title">
+      <div class="about-section-heading">
+        <p class="eyebrow">02 / Selected Projects</p>
+        <h2 id="projects-title">직접 만든 것들</h2>
+        <p>데이터 흐름부터 서비스 배포까지,<br>프로젝트로 쌓은 경험입니다.</p>
+      </div>
+      <div class="about-projects">
+        {{ range .Params.projects }}
+          <article class="about-project">
+            <p class="about-project-category">{{ .category }}</p>
+            <h3>{{ .name }}</h3>
+            <p class="about-project-summary">{{ .summary }}</p>
+            <p class="about-project-description">{{ .description }}</p>
+            <ul class="about-chips" aria-label="사용 기술">{{ range .stack }}<li>{{ . }}</li>{{ end }}</ul>
+          </article>
+        {{ end }}
+      </div>
+    </section>
+
+    <section class="about-section" id="tools" aria-labelledby="tools-title">
+      <div class="about-section-heading">
+        <p class="eyebrow">03 / Toolkit</p>
+        <h2 id="tools-title">함께 쓰는 기술</h2>
+      </div>
+      <dl class="about-tools">
+        {{ range .Params.tools }}
+          <div><dt>{{ .area }}</dt><dd><ul class="about-chips">{{ range .items }}<li>{{ . }}</li>{{ end }}</ul></dd></div>
+        {{ end }}
+      </dl>
+    </section>
+
+    <section class="about-section" id="awards" aria-labelledby="awards-title">
+      <div class="about-section-heading">
+        <p class="eyebrow">04 / Recognition</p>
+        <h2 id="awards-title">수상 경력</h2>
+      </div>
+      <ul class="about-awards">
+        {{ range .Params.awards }}
+          <li>
+            <a class="about-award-link" href="{{ .url }}">
+              <span class="about-award-icon" aria-hidden="true">✳</span>
+              <div class="about-award-copy">
+                <p class="about-award-meta"><time datetime="{{ replace .date "." "-" }}">{{ .date }}</time><span>{{ .issuer }}</span></p>
+                <h3>{{ .title }}</h3>
+                <span class="about-award-result">{{ .result }}</span>
+                {{ with .detail }}<p class="about-award-detail">{{ . }}</p>{{ end }}
+              </div>
+              <span class="about-award-arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+        {{ end }}
+      </ul>
+    </section>
+    <section class="about-section about-certifications-section" id="certifications" aria-labelledby="certifications-title">
+      <div class="about-section-heading">
+        <p class="eyebrow">05 / Certifications</p>
+        <h2 id="certifications-title">자격증</h2>
+      </div>
+      <ul class="about-certifications">
+        {{ range .Params.certifications }}
+          <li>
+            <p class="about-certification-date">취득 <time datetime="{{ replace .date "." "-" }}">{{ .date }}</time></p>
+            <h3>{{ .title }}</h3>
+            <p class="about-certification-issuer">{{ .issuer }}</p>
+            <p class="about-certification-id">자격번호 <span>{{ .credential_id }}</span></p>
+          </li>
+        {{ end }}
+      </ul>
+    </section>
+  </div>
+  {{ $portraitScript := resources.Get "js/about-portrait.js" | minify | fingerprint }}
+  <script src="{{ $portraitScript.RelPermalink }}" integrity="{{ $portraitScript.Data.Integrity }}" defer></script>
+{{ end }}

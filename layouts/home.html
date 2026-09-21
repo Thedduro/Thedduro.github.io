@@ -1,12 +1,10 @@
 {{ define "main" }}
   <div class="container">
     <section class="hero" aria-labelledby="hero-title">
-      <div class="profile-mark" aria-hidden="true">T</div>
+      <img class="profile-mark" src="{{ "profile.jpeg" | relURL }}" alt="{{ site.Params.authorName }} 프로필 사진" width="136" height="136">
       <div class="hero-copy">
         <p class="eyebrow">{{ site.Params.authorName }} · {{ site.Params.profileTitle }}</p>
         <h1 id="hero-title">데이터를 흐르게 하고,<br><span>가치를 시스템으로<br>만듭니다.</span></h1>
-        <p class="hero-description">{{ site.Params.profileBio }}</p>
-        <p class="profile-context">{{ site.Params.company }} <span aria-hidden="true">·</span> {{ site.Params.location }}</p>
         {{ partial "social-links.html" . }}
       </div>
     </section>
@@ -30,15 +28,15 @@
         <article class="focus-card">
           <span class="focus-number">02</span>
           <div>
-            <h3>Cloud & Backend</h3>
-            <p class="focus-stack">AWS · FastAPI · Django · Docker</p>
+            <h3>Cloud & Infrastructure</h3>
+            <p class="focus-stack">AWS · Docker · FastAPI · Prometheus</p>
           </div>
         </article>
         <article class="focus-card">
           <span class="focus-number">03</span>
           <div>
             <h3>AI Systems</h3>
-            <p class="focus-stack">LangGraph · RAG · MLflow</p>
+            <p class="focus-stack">LangGraph · RAG · AI Agent </p>
           </div>
         </article>
       </div>
