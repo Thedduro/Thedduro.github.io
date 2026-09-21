@@ -52,13 +52,28 @@
         <p>데이터 흐름부터 서비스 배포까지,<br>프로젝트로 쌓은 경험입니다.</p>
       </div>
       <div class="about-projects">
-        {{ range .Params.projects }}
-          <article class="about-project">
-            <p class="about-project-category">{{ .category }}</p>
-            <h3>{{ .name }}</h3>
-            <p class="about-project-summary">{{ .summary }}</p>
-            <p class="about-project-description">{{ .description }}</p>
-            <ul class="about-chips" aria-label="사용 기술">{{ range .stack }}<li>{{ . }}</li>{{ end }}</ul>
+        {{ range $project := .Params.projects }}
+          <article class="about-project-shell{{ if .architecture }} is-flippable{{ end }}{{ if .github }} has-github{{ end }}">
+            {{ if .architecture }}
+              <div class="about-project-rotator">
+                <div class="about-project about-project-front">
+                  {{ partial "about-project-content.html" . }}
+                </div>
+                <div class="about-project about-project-back" aria-hidden="true">
+                  <p class="about-project-category">Architecture</p>
+                  <h3>{{ .name }}</h3>
+                  <img class="about-project-architecture" src="{{ .architecture | relURL }}" alt="{{ .name }} 서비스와 인프라 아키텍처" loading="lazy">
+                </div>
+              </div>
+              <button class="about-project-toggle" type="button" aria-label="{{ .name }} 아키텍처 이미지 전환" aria-pressed="false"></button>
+            {{ else }}
+              <div class="about-project">{{ partial "about-project-content.html" . }}</div>
+            {{ end }}
+            {{ with .github }}
+              <a class="about-project-github" href="{{ . }}" aria-label="{{ $project.name }} GitHub 저장소 (새 탭)" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .7a11.5 11.5 0 0 0-3.64 22.41c.58.11.79-.25.79-.56v-2.23c-3.22.7-3.9-1.37-3.9-1.37-.52-1.34-1.28-1.69-1.28-1.69-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.97.1-.75.4-1.26.73-1.55-2.57-.29-5.27-1.28-5.27-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.16 1.18A10.9 10.9 0 0 1 12 6.13c.98 0 1.95.13 2.87.39 2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.71 5.38-5.29 5.67.42.36.79 1.06.79 2.14v3.26c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .7Z"/></svg>
+              </a>
+            {{ end }}
           </article>
         {{ end }}
       </div>
@@ -117,4 +132,6 @@
   </div>
   {{ $portraitScript := resources.Get "js/about-portrait.js" | minify | fingerprint }}
   <script src="{{ $portraitScript.RelPermalink }}" integrity="{{ $portraitScript.Data.Integrity }}" defer></script>
+  {{ $projectScript := resources.Get "js/about-projects.js" | minify | fingerprint }}
+  <script src="{{ $projectScript.RelPermalink }}" integrity="{{ $projectScript.Data.Integrity }}" defer></script>
 {{ end }}

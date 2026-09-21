@@ -1,0 +1,11 @@
+<p class="about-project-category">{{ .category }}</p>
+<h3>{{ .name }}</h3>
+<p class="about-project-summary">{{ .summary }}</p>
+{{ if .highlights }}
+  <ul class="about-project-description about-project-highlights">
+    {{ range .highlights }}<li>{{ . }}</li>{{ end }}
+  </ul>
+{{ else }}
+  <p class="about-project-description">{{ .description }}</p>
+{{ end }}
+<ul class="about-chips" aria-label="사용 기술">{{ range .stack }}<li>{{ . }}</li>{{ end }}</ul>
