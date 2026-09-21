@@ -31,23 +31,46 @@ projects:
   - name: "One Bite Article"
     category: "Data Pipeline · AI"
     summary: "AI 기반 IT 뉴스 학습 플랫폼"
-    description: "ETL 파이프라인을 자동화하고 기사 요약과 퀴즈 생성, CloudWatch 모니터링, 프로덕션 배포를 구현했습니다."
-    stack: ["Airflow", "AWS", "Docker", "MySQL", "MongoDB"]
-  - name: "HomePick"
-    category: "Real-time Streaming"
-    summary: "실시간 부동산 분석 플랫폼"
-    description: "이벤트 스트리밍 아키텍처, 상태 기반 스트림 처리, 위치 기반 시각화와 Elasticsearch 인덱스 최적화를 다뤘습니다."
-    stack: ["Kafka", "PyFlink", "Elasticsearch", "Kibana", "Django", "Vue"]
+    highlights:
+      - "Airflow 기반 기사 수집·선별·본문 저장·AI 처리 API 연계 자동화"
+      - "MySQL 메타데이터와 MongoDB 기사 본문 분리 저장"
+      - "누적 순위 점수·등장 빈도·갱신 시점 기반 상위 5개 기사 선별"
+      - "Docker 기반 Airflow 실행 환경 및 DAG 재시도 정책 구성"
+    github: "https://github.com/OneBiteArticle"
+    stack: ["Airflow", "Python", "Docker", "MySQL", "MongoDB"]
+  - name: "ROMO"
+    category: "Infrastructure · CI/CD"
+    summary: "여행·약속의 공동 경비 기록 및 정산 서비스"
+    highlights:
+      - "Jenkins·Docker Compose 기반 개발·운영 CI/CD 구성"
+      - "헬스체크 기반 백엔드 블루그린 배포 및 Nginx 전환 실패 시 복구 로직 구현"
+      - "Prometheus·Grafana 모니터링 및 Alertmanager 알림 구성"
+      - "n8n 기반 MR 리뷰 자동화"
+    github: "https://github.com/zero-memo/ROMO-code/tree/dev/infra"
+    architecture: "images/projects/romo-architecture.png"
+    stack: ["Docker Compose", "Jenkins", "Nginx", "Prometheus", "Grafana", "Alertmanager", "n8n"]
   - name: "Akkubank"
-    category: "Event-driven · AI"
-    summary: "이벤트 기반 금융 플랫폼"
-    description: "MSA와 실시간 이벤트 처리, RAG 에이전트 기반 AI 챗봇, Jenkins CI/CD를 구현했습니다."
-    stack: ["Kafka", "Redis", "Spark", "LangGraph", "Jenkins"]
+    category: "AI · Data Pipeline"
+    summary: "어린이 금융 학습을 위한 게이밍 핀테크 플랫폼"
+    highlights:
+      - "FastAPI 금융 학습 챗봇의 의도별 응답 라우팅과 출력 검수·재작성 구현"
+      - "PostgreSQL·pgvector 검색을 활용한 RAG 답변 생성"
+      - "Airflow 기반 뉴스 수집·중복 제거·임베딩·벡터 DB 적재 자동화"
+      - "LangGraph 기반 난이도별 경제 퀴즈 생성·검증·재생성·저장 흐름 구성"
+    github: "https://github.com/akku-bank"
+    architecture: "images/projects/akbk-architecture.png"
+    stack: ["FastAPI", "LangChain", "LangGraph", "Airflow", "PostgreSQL", "pgvector"]
   - name: "Barmi"
-    category: "Backend · Infrastructure"
-    summary: "AI 영어 발음 학습 플랫폼"
-    description: "AI 게이트웨이와 인프라를 설계하고 리버스 프록시·SSL 배포를 구성했으며 PM 역할을 경험했습니다."
-    stack: ["FastAPI", "RabbitMQ", "Docker", "Nginx"]
+    category: "AI Gateway · Infrastructure"
+    summary: "청각장애인을 위한 AI 영어 발음 학습 플랫폼"
+    highlights:
+      - "Nginx HTTPS 리버스 프록시 및 OpenVidu WebSocket 라우팅 구성"
+      - "RabbitMQ 기반 음성 분석 작업·결과 큐와 메시지 라우팅 설계"
+      - "FastAPI AI 게이트웨이의 음성 파일 전달·분석 결과·오류 처리 구현"
+      - "Docker 기반 AI 게이트웨이 컨테이너화 및 프로젝트 PM 수행"
+    github: "https://github.com/BarmiSpeechLab"
+    architecture: "images/projects/barmi-architecture.png"
+    stack: ["FastAPI", "RabbitMQ", "Docker", "Nginx", "OpenVidu"]
 tools:
   - area: "Data Engineering"
     items: ["Kafka", "RabbitMQ", "Flink", "Spark", "Airflow", "Elasticsearch"]
