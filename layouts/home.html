@@ -53,7 +53,7 @@
       {{ $posts := where site.RegularPages "Section" "posts" }}
       {{ if $posts }}
         <div class="post-list">
-          {{ range first 6 $posts }}{{ partial "post-card.html" . }}{{ end }}
+          {{ range first 6 $posts }}{{ partial "post-card.html" (dict "page" . "headingLevel" 3) }}{{ end }}
         </div>
       {{ else }}
         <div class="empty-state">

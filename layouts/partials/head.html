@@ -2,14 +2,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#f7f8fa">
-{{ $description := .Params.description | default site.Params.description }}
-<meta name="description" content="{{ $description }}">
+{{ $seo := partial "seo/metadata.html" . }}
+<title>{{ $seo.title }}</title>
+<meta name="description" content="{{ $seo.description }}">
+{{ if $seo.noindex }}<meta name="robots" content="noindex">{{ end }}
+{{ if ne .Kind "404" }}
 <link rel="canonical" href="{{ .Permalink }}">
+{{ partial "seo/social.html" (dict "page" . "seo" $seo) }}
+{{ partial "seo/article-jsonld.html" (dict "page" . "seo" $seo) }}
+{{ end }}
+{{ if .IsHome }}
+  {{ with site.Params.googleSiteVerification }}<meta name="google-site-verification" content="{{ . }}">{{ end }}
+  {{ with site.Params.bingSiteVerification }}<meta name="msvalidate.01" content="{{ . }}">{{ end }}
+{{ end }}
 <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
 {{ with .OutputFormats.Get "RSS" }}
-  <link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ .RelPermalink }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ .Permalink }}">
 {{ end }}
-<title>{{ if .IsHome }}{{ site.Title }} — {{ site.Params.profileTitle }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
 <script>
   (() => {
     const saved = localStorage.getItem('theme');

@@ -1,11 +1,17 @@
 baseURL = 'https://thedduro.github.io/'
 title = 'Thedduro'
-locale = 'ko-kr'
+locale = 'ko-KR'
 defaultContentLanguage = 'ko'
 hasCJKLanguage = true
 timeZone = 'Asia/Seoul'
 enableRobotsTXT = true
 summaryLength = 30
+
+# 파일 복사·빌드 시각 대신 명시된 게시일과 수정일만 사용한다.
+[frontmatter]
+  date = ['date', 'publishdate']
+  publishDate = ['publishdate', 'date']
+  lastmod = ['lastmod', 'publishdate', 'date']
 
 [permalinks]
   posts = '/posts/:slug/'
@@ -24,6 +30,9 @@ summaryLength = 30
 [params]
   description = '데이터 엔지니어 임선우의 기술 블로그. 신뢰할 수 있는 데이터 플랫폼, 실시간 스트리밍, 백엔드와 AI 시스템을 기록합니다.'
   authorName = '임선우'
+  # Search Console/Bing에서 발급한 HTML 메타 태그의 content 값만 설정한다.
+  # googleSiteVerification = ''
+  # bingSiteVerification = ''
   profileTitle = 'Data Engineer'
   github = 'https://github.com/Thedduro'
   linkedin = 'https://www.linkedin.com/in/%EC%84%A0%EC%9A%B0-%EC%9E%84-5634a5341/'
