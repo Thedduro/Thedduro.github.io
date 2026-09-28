@@ -36,6 +36,9 @@ jobs:
         id: pages
         uses: actions/configure-pages@v6
 
+      - name: Test SEO templates and validation
+        run: python3 -B -m unittest discover -s scripts -p 'test_*.py'
+
       - name: Build with Hugo
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
@@ -45,6 +48,9 @@ jobs:
             --gc \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
+
+      - name: Validate search metadata and feeds
+        run: python3 scripts/check-seo.py public
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5

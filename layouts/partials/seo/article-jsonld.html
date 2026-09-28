@@ -1,0 +1,21 @@
+{{- $page := .page -}}
+{{- $seo := .seo -}}
+{{- if and $seo.isPost (not $seo.noindex) -}}
+  {{- $author := dict "@type" "Person" "name" site.Params.authorName -}}
+  {{- with site.GetPage "/about" -}}{{- $author = merge $author (dict "url" .Permalink) -}}{{- end -}}
+  {{- $article := dict
+    "@context" "https://schema.org"
+    "@type" "BlogPosting"
+    "@id" (printf "%s#article" $page.Permalink)
+    "headline" $page.Title
+    "description" $seo.description
+    "url" $page.Permalink
+    "mainEntityOfPage" (dict "@type" "WebPage" "@id" $page.Permalink)
+    "author" $author
+    "datePublished" ($page.PublishDate.Format "2006-01-02T15:04:05Z07:00")
+    "dateModified" ($page.Lastmod.Format "2006-01-02T15:04:05Z07:00")
+    "inLanguage" site.Language.Lang
+  -}}
+  {{- with $seo.image -}}{{- $article = merge $article (dict "image" (slice .)) -}}{{- end -}}
+<script type="application/ld+json">{{ $article | jsonify | safeJS }}</script>
+{{- end -}}

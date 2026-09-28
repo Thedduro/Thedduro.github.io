@@ -399,14 +399,14 @@ img {
   font-size: 13px;
 }
 
-.post-card h2 {
+.post-card :is(h2, h3) {
   margin: 8px 0 10px;
   font-size: clamp(21px, 2.5vw, 26px);
   letter-spacing: -0.035em;
   line-height: 1.35;
 }
 
-.post-card h2 a {
+.post-card :is(h2, h3) a {
   background-image: linear-gradient(var(--accent), var(--accent));
   background-repeat: no-repeat;
   background-position: 0 100%;
@@ -414,7 +414,7 @@ img {
   transition: background-size 220ms ease;
 }
 
-.post-card h2 a:hover {
+.post-card :is(h2, h3) a:hover {
   background-size: 100% 2px;
 }
 

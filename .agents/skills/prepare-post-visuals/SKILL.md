@@ -12,7 +12,7 @@ Visual은 설명의 일부다. 이미지 개수나 장식성을 늘리는 것이
 - 대상 게시물 전체와 요청 범위를 읽는다. 관련 조사 결과, 기준 버전, 코드와 본문에서 사용하는 용어를 확인한다.
 - 기존 게시물의 이미지 참조, `static/`, `assets/`, `hugo.toml`, 관련 `layouts/`를 확인한다. 저장·참조 규칙은 현재 구조와 [write-tech-post](../write-tech-post/SKILL.md)의 게시물 형식을 따른다.
 - Mermaid는 실제 렌더링 설정이나 동작하는 기존 예제로 지원 여부를 확인한다. Hugo를 사용한다는 사실이나 코드 블록 문법만으로 지원한다고 판단하지 않는다.
-- 이 Skill을 추가하는 시점에는 게시물 이미지 사례가 없고 `static/favicon.svg`만 존재하며, Mermaid 렌더러는 구성되어 있지 않다. 이후 환경이 바뀌었으면 실제 확인 결과를 우선한다.
+- 기존 게시물 이미지 사례는 `static/images/spark-cache-when-to-use/`의 도식이며, Mermaid 렌더러는 구성되어 있지 않다. 이후 환경이 바뀌었으면 실제 확인 결과를 우선한다. 공유용 대표 이미지 필드는 [optimize-search-seo](../optimize-search-seo/SKILL.md)를 따른다.
 
 ## 필요성과 유형 판단
 

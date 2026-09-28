@@ -1,9 +1,13 @@
+{{ $page := . }}
+{{ $headingLevel := 2 }}
+{{ if reflect.IsMap . }}{{ $page = .page }}{{ $headingLevel = .headingLevel }}{{ end }}
+{{ with $page }}
 <article class="post-card">
   <div class="post-card-meta">
     <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006. 01. 02." }}</time>
     {{ partial "view-counter.html" (dict "page" . "mode" "read") }}
   </div>
-  <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+  {{ if eq $headingLevel 3 }}<h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>{{ else }}<h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>{{ end }}
   {{ with (.Params.description | default (.Summary | plainify)) }}<p>{{ . | truncate 150 }}</p>{{ end }}
   {{ with .GetTerms "tags" }}
     <ul class="tag-list" aria-label="태그">
@@ -11,3 +15,4 @@
     </ul>
   {{ end }}
 </article>
+{{ end }}

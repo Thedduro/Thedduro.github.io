@@ -7,7 +7,12 @@
         {{ with .Description }}<p class="article-description">{{ . }}</p>{{ end }}
         {{ if eq .Section "posts" }}
           <div class="article-meta">
-            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006. 01. 02." }}</time>
+            {{ with site.GetPage "/about" }}<a rel="author" href="{{ .RelPermalink }}">{{ site.Params.authorName }}</a><span aria-hidden="true">·</span>{{ end }}
+            <time datetime="{{ .PublishDate.Format "2006-01-02T15:04:05Z07:00" }}">{{ .PublishDate.Format "2006. 01. 02." }}</time>
+            {{ if .Lastmod.After .PublishDate }}
+              <span aria-hidden="true">·</span>
+              <span>수정 <time datetime="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Lastmod.Format "2006. 01. 02." }}</time></span>
+            {{ end }}
             {{ partial "view-counter.html" (dict "page" . "mode" "visit") }}
             <span aria-hidden="true">·</span>
             <span>읽는 데 {{ .ReadingTime }}분</span>
@@ -19,7 +24,7 @@
       {{ if in .TableOfContents "<li>" }}
         <details class="mobile-toc">
           <summary>목차</summary>
-          {{ .TableOfContents }}
+          {{ .TableOfContents | replaceRE `id="TableOfContents"` `id="MobileTableOfContents"` | safeHTML }}
         </details>
       {{ end }}
 
