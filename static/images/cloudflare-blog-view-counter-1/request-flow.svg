@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="920" viewBox="0 0 680 920" role="img" aria-labelledby="title desc">
+<title id="title">정적 블로그와 조회수 API의 역할</title>
+<desc id="desc">GitHub Pages가 브라우저에 파일을 제공한다. 브라우저는 Worker에 API 요청을 보내고 Worker는 게시글별 Durable Object를 호출한다. 각 Object 안의 SQLite가 조회수를 저장한다.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#526784"/></marker></defs>
+<rect width="680" height="920" rx="20" fill="#f4f7fb"/>
+<g font-family="system-ui, -apple-system, sans-serif" text-anchor="middle" fill="#172a43">
+<text x="340" y="48" font-size="25" font-weight="700">화면 전달과 조회수 처리는 별개의 요청</text>
+<rect x="105" y="78" width="470" height="100" rx="12" fill="#fff" stroke="#a1b3c9" stroke-width="2"/>
+<text x="340" y="118" font-size="25" font-weight="700">GitHub Pages</text>
+<text x="340" y="150" font-size="21">Hugo가 만든 HTML · CSS · JavaScript</text>
+<path d="M340 181V240" stroke="#526784" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="160" y="195" width="360" height="29" fill="#f4f7fb"/>
+<text x="340" y="217" font-size="20">① 블로그 파일 전달</text>
+<rect x="105" y="250" width="470" height="110" rx="12" fill="#fff" stroke="#a1b3c9" stroke-width="2"/>
+<text x="340" y="291" font-size="25" font-weight="700">방문자의 브라우저</text>
+<text x="340" y="326" font-size="21">페이지 표시 · 조회수 API 호출</text>
+<path d="M285 363V428" stroke="#526784" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="118" y="377" width="310" height="29" fill="#f4f7fb"/>
+<text x="275" y="399" font-size="20">② 게시글 ID로 API 요청</text>
+<rect x="105" y="440" width="470" height="110" rx="12" fill="#eaf0ff" stroke="#6586c1" stroke-width="2"/>
+<text x="340" y="481" font-size="25" font-weight="700">Cloudflare Worker</text>
+<text x="340" y="516" font-size="21">입력 검증 · 해당 글의 Object 선택</text>
+<path d="M570 440H620V304H578" fill="none" stroke="#526784" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#arrow)"/>
+<text x="617" y="382" font-size="18" text-anchor="end">응답</text>
+<path d="M240 554V640" stroke="#526784" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M440 554V640" stroke="#526784" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="124" y="577" width="432" height="31" fill="#f4f7fb"/>
+<text x="340" y="600" font-size="20">③ 같은 게시글은 같은 Object로</text>
+<rect x="36" y="655" width="290" height="185" rx="12" fill="#e8f5ef" stroke="#699985" stroke-width="2"/>
+<rect x="354" y="655" width="290" height="185" rx="12" fill="#e8f5ef" stroke="#699985" stroke-width="2"/>
+<text x="181" y="691" font-size="23" font-weight="700">Durable Object A</text>
+<text x="499" y="691" font-size="23" font-weight="700">Durable Object B</text>
+<text x="181" y="720" font-size="18">/posts/spark-cache/</text>
+<text x="499" y="720" font-size="18">/posts/airflow-xcom/</text>
+<rect x="62" y="741" width="238" height="72" rx="8" fill="#fff"/>
+<rect x="380" y="741" width="238" height="72" rx="8" fill="#fff"/>
+<text x="181" y="770" font-size="21" font-weight="700">SQLite</text>
+<text x="499" y="770" font-size="21" font-weight="700">SQLite</text>
+<text x="181" y="797" font-size="19">이 글의 조회수 저장</text>
+<text x="499" y="797" font-size="19">다른 글의 조회수 저장</text>
+<text x="340" y="884" font-size="19">저장 결과는 Object → Worker → 브라우저로 반환</text>
+</g></svg>
