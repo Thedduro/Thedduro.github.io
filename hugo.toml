@@ -28,6 +28,9 @@ summaryLength = 30
   github = 'https://github.com/Thedduro'
   linkedin = 'https://www.linkedin.com/in/%EC%84%A0%EC%9A%B0-%EC%9E%84-5634a5341/'
   email = 'lsw2207@gmail.com'
+  # Set the deployed Worker URL including /api/views to enable production counts.
+  viewCounterEndpoint = 'https://worker.lsw2207.workers.dev/api/views'
+  viewCounterWindowMinutes = 30
 
 [[menus.main]]
   name = '홈'

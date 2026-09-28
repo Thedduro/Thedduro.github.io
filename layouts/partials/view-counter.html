@@ -1,0 +1,15 @@
+{{ $page := .page }}
+{{ $mode := .mode }}
+{{ $endpoint := site.Params.viewCounterEndpoint }}
+{{ if hugo.IsServer }}
+  {{ $endpoint = "http://localhost:8787/api/views" }}
+{{ end }}
+{{ if and $endpoint (not $page.Draft) }}
+  <span data-view-counter-separator hidden aria-hidden="true">·</span>
+  <span data-view-counter
+        data-mode="{{ $mode }}"
+        data-endpoint="{{ $endpoint }}"
+        data-post-id="{{ $page.RelPermalink }}"
+        data-window-minutes="{{ site.Params.viewCounterWindowMinutes | default 30 }}"
+        aria-live="polite" hidden></span>
+{{ end }}
