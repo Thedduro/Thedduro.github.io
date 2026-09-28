@@ -15,7 +15,8 @@ Hugo와 GitHub Pages로 운영하는 개인 기술 블로그다. 개발자가 �
 | `static/` | 이미지 등 그대로 배포하는 정적 파일 |
 | `public/`, `resources/_gen/` | 빌드 결과와 생성 리소스 |
 | `.github/workflows/` | GitHub Pages 빌드·배포 |
-| `.agents/skills/` | 기술 조사·게시물 작성·검수 지침 |
+| `.agents/skills/` | 기술 조사·게시물 작성·검수 및 Worker 개발 지침 |
+| `worker/` | Cloudflare Worker 조회수 API와 Durable Objects |
 
 ## 공통 원칙
 
@@ -30,6 +31,7 @@ Hugo와 GitHub Pages로 운영하는 개인 기술 블로그다. 개발자가 �
 
 | Skill | 책임과 적용 요청 |
 | --- | --- |
+| [develop-cloudflare-worker](.agents/skills/develop-cloudflare-worker/SKILL.md) | Cloudflare Worker / Durable Objects 개발·검증 및 Hugo 연동 |
 | [research-tech-topic](.agents/skills/research-tech-topic/SKILL.md) | 기술 조사, 사실 검증, 버전·API 차이 확인 |
 | [write-tech-post](.agents/skills/write-tech-post/SKILL.md) | 새 기술 게시물의 문체 파악, 구성과 초안 작성 |
 | [prepare-post-visuals](.agents/skills/prepare-post-visuals/SKILL.md) | 게시물 작성·수정 중 기술 개념의 이해를 돕는 시각 자료가 필요할 때 판단과 준비 |

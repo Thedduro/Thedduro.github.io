@@ -8,6 +8,7 @@
         {{ if eq .Section "posts" }}
           <div class="article-meta">
             <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006. 01. 02." }}</time>
+            {{ partial "view-counter.html" (dict "page" . "mode" "visit") }}
             <span aria-hidden="true">·</span>
             <span>읽는 데 {{ .ReadingTime }}분</span>
             {{ if .Draft }}<span class="draft-badge">초안</span>{{ end }}

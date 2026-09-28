@@ -10,6 +10,10 @@
       {{ block "main" . }}{{ end }}
     </main>
     {{ partial "footer.html" . }}
+    {{ if or hugo.IsServer site.Params.viewCounterEndpoint }}
+      {{ $counterScript := resources.Get "js/view-counter.js" | minify | fingerprint }}
+      <script src="{{ $counterScript.RelPermalink }}" integrity="{{ $counterScript.Data.Integrity }}" defer></script>
+    {{ end }}
     {{ $theme := resources.Get "js/theme.js" | minify | fingerprint }}
     <script src="{{ $theme.RelPermalink }}" integrity="{{ $theme.Data.Integrity }}"></script>
   </body>
