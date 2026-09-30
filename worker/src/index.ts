@@ -11,6 +11,33 @@ export class MyDurableObject extends DurableObject<Env> {
 		ctx.storage.sql.exec(`CREATE TABLE IF NOT EXISTS counted_requests (
 			request_id TEXT PRIMARY KEY
 		)`);
+		ctx.storage.sql.exec(`CREATE TABLE IF NOT EXISTS post_likes (
+			visitor_id TEXT PRIMARY KEY,
+			liked INTEGER NOT NULL CHECK (liked IN (0, 1)),
+			revision INTEGER NOT NULL
+		)`);
+	}
+
+	getLikes(visitorId: string) {
+		const state = this.ctx.storage.sql.exec<{ liked: number; revision: number }>(
+			"SELECT liked, revision FROM post_likes WHERE visitor_id = ?", visitorId,
+		).toArray()[0];
+		const likes = this.ctx.storage.sql.exec<{ likes: number }>(
+			"SELECT COALESCE(SUM(liked), 0) AS likes FROM post_likes",
+		).one().likes;
+		return { likes, liked: state?.liked === 1, revision: state?.revision ?? 0 };
+	}
+
+	setLike(visitorId: string, liked: boolean, revision: number) {
+		return this.ctx.storage.transactionSync(() => {
+			const current = this.getLikes(visitorId);
+			// A delayed retry must never overwrite a later like/unlike.
+			if (current.revision !== revision) return { ...current, conflict: true };
+			this.ctx.storage.sql.exec(`INSERT INTO post_likes (visitor_id, liked, revision)
+				VALUES (?, ?, ?) ON CONFLICT (visitor_id) DO UPDATE SET
+				liked = excluded.liked, revision = excluded.revision`, visitorId, liked ? 1 : 0, revision + 1);
+			return { ...this.getLikes(visitorId), conflict: false };
+		});
 	}
 
 	getViews(): number {
@@ -68,7 +95,8 @@ export default {
 			return json({ error: "Origin not allowed" }, 403);
 		}
 		const batch = url.pathname === "/api/views/batch";
-		if (!batch && url.pathname !== "/api/views") return json({ error: "Not found" }, 404);
+		const likes = url.pathname === "/api/likes";
+		if (!batch && !likes && url.pathname !== "/api/views") return json({ error: "Not found" }, 404);
 		const methods = batch ? ["GET", "OPTIONS"] : ["GET", "POST", "OPTIONS"];
 		if (!methods.includes(request.method)) {
 			headers.set("Allow", methods.join(", "));
@@ -109,6 +137,34 @@ export default {
 		const postId = normalizePostId(url.searchParams.get("postId"));
 		if (!postId || url.searchParams.getAll("postId").length !== 1) {
 			return json({ error: "Provide one valid postId: /posts/<slug>/ (maximum 1024 characters)" }, 400);
+		}
+		if (likes) {
+			const visitorId = url.searchParams.get("visitorId") ?? "";
+			if (url.searchParams.getAll("visitorId").length > 1 ||
+				(visitorId !== "" && !/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(visitorId)) ||
+				(request.method === "POST" && !visitorId)) {
+				return json({ error: "Provide a UUID v4 visitorId" }, 400);
+			}
+			let input: { liked: boolean; revision: number } | undefined;
+			if (request.method === "POST") {
+				try {
+					const body = await request.json() as Record<string, unknown> | null;
+					if (!body || typeof body.liked !== "boolean" || !Number.isSafeInteger(body.revision) ||
+						(body.revision as number) < 0 || (body.revision as number) >= Number.MAX_SAFE_INTEGER) {
+						return json({ error: "Provide boolean liked and non-negative safe integer revision" }, 400);
+					}
+					input = { liked: body.liked, revision: body.revision as number };
+				} catch { return json({ error: "Invalid JSON body" }, 400); }
+			}
+			try {
+				const counter = env.MY_DURABLE_OBJECT.getByName(postId);
+				if (!input) return json(await counter.getLikes(visitorId.toLowerCase()));
+				const { conflict, ...state } = await counter.setLike(visitorId.toLowerCase(), input.liked, input.revision);
+				return json(state, conflict ? 409 : 200);
+			} catch (error) {
+				console.error("Like counter storage request failed", error);
+				return json({ error: "Like counter temporarily unavailable" }, 503);
+			}
 		}
 		const requestId = request.headers.get("Idempotency-Key");
 		if (request.method === "POST" && (!requestId || !/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(requestId))) {

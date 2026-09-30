@@ -1,0 +1,11 @@
+{{ $endpoint := site.Params.viewCounterEndpoint }}
+{{ if hugo.IsServer }}{{ $endpoint = "http://localhost:8787/api/views" }}{{ end }}
+{{ if and $endpoint (not .Draft) }}
+  <div class="article-likes" data-like-counter data-endpoint="{{ replaceRE `/api/views/?$` `/api/likes` $endpoint }}" data-post-id="{{ .RelPermalink }}">
+    <button class="like-button" type="button" aria-pressed="false" disabled>
+      <span data-like-heart aria-hidden="true">♡</span> 좋아요 <span data-like-count>—</span>
+    </button>
+    <span class="like-status" data-like-status role="status">좋아요를 불러오는 중입니다.</span>
+    <noscript>좋아요 기능은 JavaScript를 켜면 사용할 수 있습니다.</noscript>
+  </div>
+{{ end }}
