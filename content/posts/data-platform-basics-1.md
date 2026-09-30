@@ -1,7 +1,7 @@
 ---
 title: "[데이터플랫폼] 웨어하우스·레이크·레이크하우스·마트의 차이 - 1편"
 date: 2026-09-29T13:38:29+09:00
-draft: false
+draft: fals
 description: "쇼핑몰의 주문·클릭 데이터를 따라가며 데이터 웨어하우스, 레이크, 레이크하우스, 마트에 실제로 무엇을 저장하고 어떻게 조회·갱신하는지 살펴본다."
 slug: "data-platform-basics"
 categories: ["Data Engineering"]
