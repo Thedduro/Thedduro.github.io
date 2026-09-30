@@ -130,3 +130,15 @@ API 변경 배포 순서: Worker를 먼저 재배포하고, 그 다음 Hugo 사�
 성공한 조회수는 localStorage의 `post-view-cache:v1:<endpoint>:<postId>`에 `{views, savedAt}`으로 저장한다. 목록은 10분 미만 캐시를 사용하고 만료·손상·접근 실패 시 일괄 GET한다. 페이지를 열 때 만료 여부를 검사하며 주기적인 자동 갱신은 하지 않는다. 다른 방문자의 증가분은 목록을 불러올 때 최대 약 10분 이전 값으로 보일 수 있다. 글 상세는 캐시 유무와 무관하게 기존 방문 집계/조회를 수행하고 성공 결과로 캐시를 갱신한다. 늦게 도착한 목록 응답이 요청 시작 이후 저장된 상세 결과를 덮어쓰지 않도록 한다. 30분 방문 제한과 10분 표시 캐시는 별개다.
 
 초안 및 API 실패 시 유효한 캐시가 없는 카운터는 숨긴다. 스크립트는 baseof에서 페이지당 한 번만 로드한다. 일괄 API를 추가한 Worker를 먼저 재배포한 다음 블로그를 배포한다.
+
+## 좋아요
+
+게시글 하단의 좋아요 버튼은 같은 Worker의 `/api/likes`를 사용한다. API 주소는 기존 `viewCounterEndpoint`의 `/api/views`를 `/api/likes`로 바꿔 얻는다. 기존 글별 Object에 `post_likes` 테이블을 추가하며 조회수, class/binding, v1 migration은 유지한다. 테이블은 Object 생성자에서 `CREATE TABLE IF NOT EXISTS`로 준비하므로 별도 namespace migration은 필요 없다.
+
+- `GET /api/likes?postId=/posts/example/&visitorId=<UUID v4>` → `{ "likes": 3, "liked": true, "revision": 1 }`. visitorId를 생략하면 합계만 조회하고 개인 상태는 false/0이다.
+- 동일 URL로 `POST`하고 JSON `{ "liked": false, "revision": 1 }`을 보내면 좋아요를 취소한다. visitorId는 필수다. revision이 현재 저장값과 다르면 최신 상태와 HTTP 409를 반환하고 변경하지 않는다.
+- 방문자 상태와 revision 변경은 하나의 `transactionSync`에서 처리한다. 취소 기록도 남겨 이전 요청의 재전송이 다시 좋아요를 누르는 일을 막는다. 합계는 저장된 liked 값의 합이다.
+- 브라우저는 `post-like-visitor:v1:<API origin>`에 무작위 UUID를 저장하고, 변경 직전 서버 상태를 읽는다. Web Locks를 지원하면 같은 브라우저의 탭 사이 요청도 직렬화한다. 실패 후 버튼을 누르면 먼저 조회만 수행해 불확실한 결과를 확인한다. 저장소를 사용할 수 없으면 합계만 표시한다.
+- 로그인 기반 사용자 식별은 아니다. 저장소 삭제, 시크릿 모드, 다른 기기에서는 별도 방문자로 집계된다. 공개 API이므로 임의 UUID를 통한 조작 방지는 제공하지 않는다.
+
+배포할 때는 `worker/`에서 `npm run deploy`로 Worker를 먼저 갱신한 뒤 기존 GitHub Pages 절차로 블로그를 배포한다. 이전 Worker에는 좋아요 API가 없으므로 프론트엔드만 배포하면 버튼에 조회 실패 안내가 표시된다. 로컬 검증은 `npm run typecheck`, `npm test`, 저장소 루트의 `hugo`로 수행한다.

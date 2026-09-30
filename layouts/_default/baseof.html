@@ -14,6 +14,10 @@
       {{ $counterScript := resources.Get "js/view-counter.js" | minify | fingerprint }}
       <script src="{{ $counterScript.RelPermalink }}" integrity="{{ $counterScript.Data.Integrity }}" defer></script>
     {{ end }}
+    {{ if and (eq .Section "posts") .IsPage (not .Draft) (or hugo.IsServer site.Params.viewCounterEndpoint) }}
+      {{ $likes := resources.Get "js/like-counter.js" | minify | fingerprint }}
+      <script src="{{ $likes.RelPermalink }}" integrity="{{ $likes.Data.Integrity }}" defer></script>
+    {{ end }}
     {{ $theme := resources.Get "js/theme.js" | minify | fingerprint }}
     <script src="{{ $theme.RelPermalink }}" integrity="{{ $theme.Data.Integrity }}"></script>
   </body>

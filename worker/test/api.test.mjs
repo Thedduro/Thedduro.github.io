@@ -191,3 +191,45 @@ test('batch validates size and every ID, rejects POST and forbidden Origin', asy
   assert.equal(preflight.status, 204);
   assert.equal(preflight.headers.get('access-control-allow-methods'), 'GET, OPTIONS');
 });
+
+async function like(postId, visitorId, input, headers = {}) {
+  return fetch(`${base}/api/likes?${new URLSearchParams({ postId, ...(visitorId ? { visitorId } : {}) })}`, {
+    method: input === undefined ? 'GET' : 'POST',
+    headers: { Origin: origin, 'Content-Type': 'application/json', ...headers },
+    body: input === undefined ? undefined : JSON.stringify(input),
+  });
+}
+test('likes persist, isolate visitors/posts, and reject delayed retries after unlike', async () => {
+  const id = randomUUID();
+  const post = '/posts/likes/';
+  assert.deepEqual(await (await like(post, id)).json(), { likes: 0, liked: false, revision: 0 });
+  const responses = await Promise.all(Array.from({ length: 10 }, () => like(post, id, { liked: true, revision: 0 })));
+  assert.equal(responses.filter(r => r.status === 200).length, 1);
+  assert.equal(responses.filter(r => r.status === 409).length, 9);
+  assert.deepEqual(await (await like(post, id.toUpperCase())).json(), { likes: 1, liked: true, revision: 1 });
+  await like(post, randomUUID(), { liked: true, revision: 0 });
+  assert.deepEqual(await (await like(post, id, { liked: false, revision: 1 })).json(), { likes: 1, liked: false, revision: 2 });
+  const stale = await like(post, id, { liked: true, revision: 0 });
+  assert.equal(stale.status, 409);
+  assert.deepEqual(await stale.json(), { likes: 1, liked: false, revision: 2 });
+  await stop(); await start();
+  assert.deepEqual(await (await like(post, id)).json(), { likes: 1, liked: false, revision: 2 });
+  assert.deepEqual(await (await like('/posts/likes-other/', id)).json(), { likes: 0, liked: false, revision: 0 });
+  assert.equal(await views(post), 0);
+  assert.equal((await (await like(post)).json()).likes, 1);
+});
+test('likes validate inputs, CORS and methods', async () => {
+  const id = randomUUID();
+  for (const input of [null, {}, { liked: 1, revision: 0 }, { liked: true, revision: -1 }, { liked: true, revision: 0.5 }]) {
+    assert.equal((await like('/posts/likes/', id, input)).status, 400);
+  }
+  assert.equal((await like('/posts/likes/', '', { liked: true, revision: 0 })).status, 400);
+  assert.equal((await like('/posts/likes/', 'invalid')).status, 400);
+  assert.equal((await like('/posts/likes/', id, undefined, { Origin: 'https://evil.example' })).status, 403);
+  const response = await fetch(`${base}/api/likes`, { method: 'OPTIONS', headers: {
+    Origin: origin, 'Access-Control-Request-Method': 'POST', 'Access-Control-Request-Headers': 'content-type',
+  } });
+  assert.equal(response.status, 204);
+  assert.equal(response.headers.get('access-control-allow-origin'), origin);
+  assert.equal((await fetch(`${base}/api/likes`, { method: 'DELETE' })).status, 405);
+});

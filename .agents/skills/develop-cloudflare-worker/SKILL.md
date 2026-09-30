@@ -47,3 +47,9 @@ description: 이 저장소의 TypeScript Cloudflare Worker와 Durable Objects AP
 - [SQL API와 transactionSync](https://developers.cloudflare.com/durable-objects/api/sqlite-storage-api/)
 - [Object 경계와 안정적인 이름으로 라우팅](https://developers.cloudflare.com/durable-objects/best-practices/rules-of-durable-objects/)
 - [Wrangler 설정](https://developers.cloudflare.com/workers/wrangler/configuration/) 및 [명령](https://developers.cloudflare.com/workers/wrangler/commands/)
+
+## 좋아요 확장
+
+- 좋아요는 `/api/likes`와 기존 글별 Object의 `post_likes` 테이블을 사용한다. 브라우저 UUID별 liked 상태와 revision을 영속 보관하고 취소 시에도 revision 기록을 삭제하지 않는다.
+- POST는 원하는 liked 값과 읽어 온 revision을 전달한다. transactionSync 안에서 revision을 비교하고 상태를 변경한다. 충돌 시 HTTP 409와 현재 상태를 반환해 지연된 요청이 최신 상태를 덮어쓰지 않게 한다.
+- 프론트엔드는 변경 직전 조회하고 가능한 경우 Web Locks로 탭 간 요청을 직렬화한다. 응답 유실 후에는 조회로 상태를 먼저 복구한다. localStorage가 불가능하면 읽기만 허용한다. UUID는 로그인 인증이나 사람 단위 중복 방지를 제공하지 않는다.

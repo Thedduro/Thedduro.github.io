@@ -38,6 +38,8 @@
         {{ end }}
       </div>
 
+      {{ if eq .Section "posts" }}{{ partial "like-counter.html" . }}{{ end }}
+
       {{ with .GetTerms "tags" }}
         <footer class="article-footer">
           <ul class="tag-list" aria-label="태그">
