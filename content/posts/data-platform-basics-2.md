@@ -1,7 +1,7 @@
 ---
 title: "[데이터플랫폼] 필요성과 대표 제품 5개의 선택 기준 - 2편"
 date: 2026-09-29T13:38:29+09:00
-draft: true
+draft: false
 description: "1편의 주문상품 테이블과 상품팀 마트를 매일 갱신·복구하는 과정을 통해 데이터 플랫폼의 역할을 이해하고, 대표 제품 5개의 구성과 선택 기준을 비교한다."
 slug: "data-platform-comparison"
 categories: ["Data Engineering"]
