@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="1080" viewBox="0 0 760 1080" role="img" aria-labelledby="title desc">
+<title id="title">Databricks에서 데이터와 작업이 연결되는 방식</title>
+<desc id="desc">클라우드 원천 파일을 Notebook에서 작성한 Spark 작업이 compute에서 처리하고 Delta 테이블로 저장한다. 같은 테이블에서 SQL 분석과 AI·모델 작업으로 갈라진다. Lakeflow Jobs는 실행 순서와 이력을, Unity Catalog는 접근 권한과 계보를 관리한다. Genie는 코드 작성과 자연어 데이터 질문을 돕는다.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#667d98"/></marker></defs>
+<rect width="760" height="1080" rx="24" fill="#f6f8fc"/>
+<g font-family="'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',sans-serif" text-anchor="middle" fill="#19324e">
+<text x="380" y="51" font-size="32" font-weight="700" fill="#19324e">한 데이터 기반에서 분석과 AI로</text>
+<text x="380" y="86" font-size="24" font-weight="400" fill="#5a6f88">Databricks 구성 요소의 역할</text>
+<rect x="115" y="116" width="530" height="80" rx="16" fill="#ffffff" stroke="#bccbdd" stroke-width="2"/>
+<text x="380" y="149" font-size="28" font-weight="600" fill="#19324e">주문 · 클릭 · 리뷰 원천 파일</text>
+<text x="380" y="179" font-size="23" font-weight="400" fill="#5a6f88">클라우드 스토리지</text>
+<path d="M380 198V231" fill="none" stroke="#667d98" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="70" y="240" width="620" height="117" rx="16" fill="#eaf1ff" stroke="#85a7d4" stroke-width="2"/>
+<text x="380" y="276" font-size="28" font-weight="700" fill="#19324e">Spark 작업 → Compute에서 실행</text>
+<text x="380" y="311" font-size="24" font-weight="400" fill="#19324e">Workspace · Notebook에서 코드 작성</text>
+<text x="380" y="340" font-size="23" font-weight="400" fill="#5a6f88">수집 · 중복 처리 · 조인 · 정제</text>
+<path d="M380 359V395" fill="none" stroke="#667d98" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="115" y="404" width="530" height="103" rx="16" fill="#e7f5f1" stroke="#8bbcad" stroke-width="2"/>
+<text x="380" y="443" font-size="28" font-weight="700" fill="#19324e">공통 정제 데이터: Delta 테이블</text>
+<text x="380" y="482" font-size="23" font-weight="400" fill="#19324e">클라우드의 데이터 파일 + 트랜잭션 로그</text>
+<path d="M380 509V535H202M380 535H558" fill="none" stroke="#667d98" stroke-width="3"/>
+<path d="M202 535V563" fill="none" stroke="#667d98" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M558 535V563" fill="none" stroke="#667d98" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="35" y="573" width="334" height="126" rx="16" fill="#ffffff" stroke="#85a7d4" stroke-width="2"/>
+<rect x="391" y="573" width="334" height="126" rx="16" fill="#ffffff" stroke="#85a7d4" stroke-width="2"/>
+<text x="202" y="610" font-size="29" font-weight="700" fill="#19324e">SQL 분석</text>
+<text x="202" y="644" font-size="25" font-weight="400" fill="#19324e">Databricks SQL</text>
+<text x="202" y="678" font-size="24" font-weight="400" fill="#19324e">마트 조회 · BI 보고</text>
+<text x="558" y="610" font-size="29" font-weight="700" fill="#19324e">AI · 모델 작업</text>
+<text x="558" y="644" font-size="23" font-weight="400" fill="#19324e">AI Functions · 학습 작업</text>
+<text x="558" y="678" font-size="24" font-weight="400" fill="#19324e">리뷰 분류 · 추천 모델</text>
+<text x="380" y="740" font-size="26" font-weight="700" fill="#19324e">작업과 데이터를 함께 관리</text>
+<rect x="35" y="760" width="334" height="113" rx="16" fill="#eef2f8" stroke="#ccd6e4" stroke-width="2"/>
+<rect x="391" y="760" width="334" height="113" rx="16" fill="#eef2f8" stroke="#ccd6e4" stroke-width="2"/>
+<text x="202" y="800" font-size="27" font-weight="700" fill="#19324e">Lakeflow Jobs</text>
+<text x="202" y="843" font-size="23" font-weight="400" fill="#19324e">일정 · 실행 순서 · 이력</text>
+<text x="558" y="800" font-size="27" font-weight="700" fill="#19324e">Unity Catalog</text>
+<text x="558" y="843" font-size="23" font-weight="400" fill="#19324e">탐색 · 권한 · 계보</text>
+<rect x="70" y="902" width="620" height="97" rx="16" fill="#fff8eb" stroke="#dcc494" stroke-width="2"/>
+<text x="380" y="942" font-size="26" font-weight="700" fill="#19324e">Genie: 사용자의 작업을 돕는 AI</text>
+<text x="380" y="978" font-size="24" font-weight="400" fill="#19324e">코드 작성 보조 · 자연어 데이터 질문</text>
+<text x="380" y="1043" font-size="21" font-weight="400" fill="#5a6f88">화살표는 데이터 흐름 · 하단은 관리와 보조 기능</text>
+</g></svg>
