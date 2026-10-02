@@ -51,7 +51,10 @@
   related_terms:
   - data-lake
   - data-warehouse
+  - delta-lake
+  - databricks
   related_posts:
+  - /posts/databricks-basics-1
   - /posts/data-platform-basics-1
   sources:
   - title: Databricks 레이크하우스
@@ -71,6 +74,7 @@
   - data-warehouse
   - data-lakehouse
   related_posts:
+  - /posts/databricks-basics-1
   - /posts/data-platform-basics-1
   - /posts/data-platform-basics-2
   sources:
@@ -153,4 +157,214 @@
     url: https://spark.apache.org/docs/3.5.6/api/python/reference/pyspark.sql/api/pyspark.sql.DataFrame.cache.html
   - title: Spark 3.5.6 Persistence
     url: https://spark.apache.org/docs/3.5.6/rdd-programming-guide.html#rdd-persistence
+  draft: false
+
+- id: databricks
+  title: "Databricks"
+  english: ""
+  abbreviations: []
+  term_aliases: ["데이터브릭스"]
+  description: "데이터 수집·처리, SQL 분석, AI·ML 개발과 작업 운영을 연결하는 데이터 플랫폼이다. 공통 데이터와 권한·실행 관리 체계 위에서 여러 사용자의 작업을 구성할 수 있다."
+  tags: [데이터 엔지니어링]
+  related_terms: ["data-lakehouse", "apache-spark", "delta-lake", "unity-catalog"]
+  related_posts: [/posts/databricks-basics-1]
+  sources:
+  - title: "Databricks 공식 문서"
+    url: https://docs.databricks.com/aws/en/introduction/
+  draft: false
+
+- id: apache-spark
+  title: "Apache Spark"
+  english: ""
+  abbreviations: []
+  term_aliases: ["아파치 스파크", "Spark"]
+  description: "큰 데이터를 분산 처리하는 오픈 소스 분석 엔진이다. Python·SQL 등의 인터페이스로 데이터 변환과 분석을 작성하며, Databricks 외의 환경에서도 실행할 수 있다."
+  tags: [데이터 엔지니어링]
+  related_terms: ["delta-lake", "databricks-compute", "lazy-evaluation", "spark-cache"]
+  related_posts: [/posts/databricks-basics-1]
+  sources:
+  - title: "Apache Spark 공식 문서"
+    url: https://spark.apache.org/docs/latest/
+  draft: false
+
+- id: delta-lake
+  title: "Delta Lake"
+  english: ""
+  abbreviations: []
+  term_aliases: ["델타 레이크"]
+  description: "Parquet 데이터 파일에 트랜잭션 로그를 더해 테이블 상태와 변경을 관리하는 오픈 소스 기술이다. 호환되는 엔진을 통해 트랜잭션과 스키마 검사 등을 지원하며 Databricks 플랫폼 자체와는 구분된다."
+  tags: [데이터 엔지니어링]
+  related_terms: ["data-lakehouse", "apache-spark", "apache-parquet"]
+  related_posts: [/posts/databricks-basics-1]
+  sources:
+  - title: "Delta Lake 공식 문서"
+    url: https://docs.databricks.com/aws/en/delta/
+  draft: false
+
+- id: unity-catalog
+  title: "Unity Catalog"
+  english: ""
+  abbreviations: []
+  term_aliases: ["유니티 카탈로그"]
+  description: "Databricks에서 데이터·AI 자산의 탐색, 접근 권한, 계보 등을 관리하는 거버넌스 계층이다. 테이블은 catalog.schema.table 이름으로 참조하며, 실제 저장 경로와 논리적 이름은 구분된다."
+  tags: [데이터 엔지니어링]
+  related_terms: ["databricks"]
+  related_posts: [/posts/databricks-basics-1]
+  sources:
+  - title: "Unity Catalog 공식 문서"
+    url: https://docs.databricks.com/aws/en/data-governance/unity-catalog/
+  draft: false
+
+- id: lakeflow-jobs
+  title: "Lakeflow Jobs"
+  english: ""
+  abbreviations: []
+  term_aliases: ["레이크플로우 잡스"]
+  description: "Databricks에서 노트북·SQL 등의 task를 job으로 묶어 일정, 의존 관계와 실행 이력을 관리하는 작업 실행 관리 기능이다. 실제 연산은 각 task에 맞는 compute에서 수행한다."
+  tags: [데이터 엔지니어링]
+  related_terms: ["databricks", "databricks-notebook", "databricks-compute"]
+  related_posts: [/posts/databricks-basics-1]
+  sources:
+  - title: "Lakeflow Jobs 공식 문서"
+    url: https://docs.databricks.com/aws/en/jobs/
+  draft: false
+
+- id: databricks-sql-warehouse
+  title: "Databricks SQL warehouse"
+  english: ""
+  abbreviations: []
+  term_aliases: ["SQL 웨어하우스"]
+  description: "Databricks에서 SQL 쿼리 실행에 맞춘 연산 자원이다. 분석 데이터를 통합·저장하는 데이터 웨어하우스 전체를 가리키는 말과는 구분된다."
+  tags: [데이터 엔지니어링]
+  related_terms: ["databricks-sql", "databricks-compute", "data-warehouse"]
+  related_posts: [/posts/databricks-basics-1]
+  sources:
+  - title: "Databricks SQL warehouse 공식 문서"
+    url: https://docs.databricks.com/aws/en/compute/sql-warehouse/
+  draft: false
+
+- id: databricks-genie
+  title: "Databricks Genie"
+  english: ""
+  abbreviations: []
+  term_aliases: ["데이터브릭스 지니"]
+  description: "Databricks의 AI 사용 환경을 묶는 이름이다. 개발 작업을 돕는 Genie Code, 자연어 데이터 질문을 위한 Genie One, 질문에 사용할 데이터·지표·업무 규칙을 구성하는 Genie Agents를 포함한다."
+  tags: [데이터 엔지니어링]
+  related_terms: ["databricks", "unity-catalog"]
+  related_posts: [/posts/databricks-basics-1]
+  sources:
+  - title: "Databricks Genie 공식 문서"
+    url: https://docs.databricks.com/aws/en/genie/
+  draft: false
+
+- id: databricks-ai-functions
+  title: "Databricks AI Functions"
+  english: ""
+  abbreviations: []
+  term_aliases: ["AI 함수"]
+  description: "Databricks의 SQL·노트북 등에서 AI를 이용해 데이터를 분류·요약·추출하거나 모델을 호출하는 함수들이다. 지원되는 모델·실행 환경과 과금 조건은 함수별로 확인해야 한다."
+  tags: [데이터 엔지니어링]
+  related_terms: ["databricks"]
+  related_posts: [/posts/databricks-basics-1]
+  sources:
+  - title: "Databricks AI Functions 공식 문서"
+    url: https://docs.databricks.com/aws/en/large-language-models/ai-functions
+  draft: false
+
+- id: mlflow
+  title: "MLflow"
+  english: ""
+  abbreviations: []
+  term_aliases: ["엠엘플로우"]
+  description: "머신러닝과 AI 애플리케이션의 개발·평가·운영을 지원하는 오픈 소스 플랫폼이다. 모델 개발에서는 실행 설정, 평가 지표와 모델 결과물을 기록해 실험을 비교·추적하는 데 사용할 수 있다."
+  tags: [데이터 엔지니어링]
+  related_terms: ["databricks"]
+  related_posts: [/posts/databricks-basics-1]
+  sources:
+  - title: "MLflow 공식 문서"
+    url: https://docs.databricks.com/aws/en/mlflow/
+  draft: false
+
+- id: databricks-model-serving
+  title: "Databricks Model Serving"
+  english: ""
+  abbreviations: []
+  term_aliases: ["모델 서빙"]
+  description: "Databricks에서 지원되는 AI·ML 모델을 호출 가능한 엔드포인트로 제공하는 서비스다. 애플리케이션에서 REST API로 모델을 호출하는 실시간 추론과 배치 추론에 활용할 수 있다."
+  tags: [데이터 엔지니어링]
+  related_terms: ["databricks", "mlflow"]
+  related_posts: [/posts/databricks-basics-1]
+  sources:
+  - title: "Databricks Model Serving 공식 문서"
+    url: https://docs.databricks.com/aws/en/machine-learning/model-serving/
+  draft: false
+
+- id: databricks-workspace
+  title: "Databricks Workspace"
+  english: ""
+  abbreviations: []
+  term_aliases: ["워크스페이스", "Workspace"]
+  description: "Databricks의 노트북·쿼리·작업 같은 자산과 기능에 접근하고 협업하는 환경이다. 작업을 작성·관리하는 환경이며, 실제 코드를 실행하는 연산 자원은 별도로 사용한다."
+  tags: ["데이터 엔지니어링"]
+  related_terms: ["databricks", "databricks-notebook", "databricks-compute"]
+  related_posts: [/posts/databricks-basics-1]
+  sources:
+  - title: "Databricks Workspace 공식 문서"
+    url: https://docs.databricks.com/aws/en/workspace/
+  draft: false
+
+- id: databricks-notebook
+  title: "Databricks Notebook"
+  english: ""
+  abbreviations: []
+  term_aliases: ["노트북", "Notebook"]
+  description: "Databricks에서 코드 셀, 설명, 실행 결과와 시각화를 함께 작성하는 작업 문서다. 공동 편집을 지원하며, 코드를 실행하려면 지원되는 연산 자원이 필요하다."
+  tags: ["데이터 엔지니어링"]
+  related_terms: ["databricks-workspace", "databricks-compute", "apache-spark"]
+  related_posts: [/posts/databricks-basics-1]
+  sources:
+  - title: "Databricks Notebook 공식 문서"
+    url: https://docs.databricks.com/aws/en/notebooks/
+  draft: false
+
+- id: databricks-compute
+  title: "Databricks Compute"
+  english: ""
+  abbreviations: []
+  term_aliases: ["연산 자원", "컴퓨트", "Compute"]
+  description: "Databricks에서 데이터 처리·분석 작업을 실행할 CPU·메모리 등의 연산 자원을 제공하는 실행 환경이다. 작업과 지원 조건에 따라 serverless compute, classic compute, SQL warehouse 등을 사용한다."
+  tags: ["데이터 엔지니어링"]
+  related_terms: ["databricks", "apache-spark", "databricks-sql-warehouse"]
+  related_posts: [/posts/databricks-basics-1]
+  sources:
+  - title: "Databricks Compute 공식 문서"
+    url: https://docs.databricks.com/aws/en/compute/
+  draft: false
+
+- id: databricks-sql
+  title: "Databricks SQL"
+  english: ""
+  abbreviations: []
+  term_aliases: ["데이터브릭스 SQL"]
+  description: "Databricks에서 SQL 조회와 BI 분석을 수행하는 데이터 웨어하우징 환경이다. 준비된 테이블을 조회하고 BI 도구에 연결할 수 있으며, SQL warehouse가 쿼리에 필요한 연산을 제공한다."
+  tags: ["데이터 엔지니어링"]
+  related_terms: ["databricks", "databricks-sql-warehouse", "data-mart"]
+  related_posts: [/posts/databricks-basics-1]
+  sources:
+  - title: "Databricks SQL 공식 문서"
+    url: https://docs.databricks.com/aws/en/sql/
+  draft: false
+
+- id: apache-parquet
+  title: "Apache Parquet"
+  english: ""
+  abbreviations: []
+  term_aliases: ["파케이", "파케", "Parquet"]
+  description: "데이터를 컬럼 단위로 저장하는 오픈 소스 파일 형식이다. 분석용 데이터의 압축과 조회에 활용되며, Delta Lake의 데이터 파일에도 사용된다. 테이블의 트랜잭션을 관리하는 Delta Lake와 역할이 다르다."
+  tags: ["데이터 엔지니어링", "스토리지"]
+  related_terms: ["delta-lake", "data-lakehouse"]
+  related_posts: [/posts/databricks-basics-1]
+  sources:
+  - title: "Apache Parquet 공식 문서"
+    url: https://parquet.apache.org/docs/overview/
   draft: false
