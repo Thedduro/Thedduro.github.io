@@ -1,0 +1,68 @@
+{{ define "main" }}
+  {{ $entries := partialCached "glossary/entries.html" . }}
+  {{ $tags := slice }}{{ $groups := slice }}
+  {{ range $entries }}{{ range .tags }}{{ $tags = $tags | append . }}{{ end }}{{ $groups = $groups | append .initial.key }}{{ end }}
+  {{ $groups = $groups | uniq }}
+  <div class="container page-shell glossary" data-glossary>
+    <header class="page-header">
+      <p class="eyebrow">Glossary</p>
+      <h1>{{ .Title }}</h1>
+      <p>{{ .Description }}</p>
+    </header>
+    <div class="glossary-controls" data-glossary-controls hidden>
+      <form role="search" class="glossary-search">
+        <label class="visually-hidden" for="glossary-query">용어 검색</label>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
+        <input id="glossary-query" type="search" placeholder="한글·영문·약어로 검색하세요" autocomplete="off" aria-controls="glossary-results" aria-describedby="glossary-search-hint">
+        <button type="button" data-clear-query hidden aria-label="검색어 지우기">지우기</button>
+      </form>
+      <div class="glossary-toolbar">
+        <div class="glossary-filters" role="group" aria-label="태그 필터">
+          <button type="button" data-tag="" aria-pressed="true">전체</button>
+          {{ range sort ($tags | uniq) }}<button type="button" data-tag="{{ . }}" aria-pressed="false">{{ . }}</button>{{ end }}
+        </div>
+      </div>
+    </div>
+    <noscript><p class="glossary-notice">검색과 필터는 JavaScript를 켜면 사용할 수 있습니다. 아래에서 모든 용어와 관련 글을 읽을 수 있습니다.</p></noscript>
+    <div class="glossary-layout">
+      <nav class="glossary-index" aria-label="용어 첫 글자로 이동">
+        <h2>빠른 이동</h2>
+        {{ range $set := slice (dict "title" "한글" "prefix" "0" "letters" (split "ㄱ ㄴ ㄷ ㄹ ㅁ ㅂ ㅅ ㅇ ㅈ ㅊ ㅋ ㅌ ㅍ ㅎ" " ")) (dict "title" "영문" "prefix" "1" "letters" (split "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z" " ")) }}
+          <p>{{ .title }}</p><div class="glossary-index-grid">
+          {{ range .letters }}{{ $key := printf "%s-%s" $set.prefix . }}
+            {{ if in $groups $key }}<a href="#group-{{ $key }}" data-index-key="{{ $key }}" aria-label="{{ . }} 용어로 이동">{{ . }}</a>{{ else }}<span aria-hidden="true">{{ . }}</span>{{ end }}
+          {{ end }}</div>
+        {{ end }}
+        {{ if in $groups "2-기타" }}<a href="#group-2-기타" data-index-key="2-기타">숫자·기타</a>{{ end }}
+      </nav>
+      <div class="glossary-content">
+        <p class="glossary-count" role="status" aria-live="polite" aria-atomic="true" data-glossary-count>전체 {{ len $entries }}개 용어</p>
+        <div id="glossary-results">
+          {{ range $key := $groups }}
+            <section class="glossary-group" id="group-{{ $key }}" data-group="{{ $key }}" aria-labelledby="heading-{{ $key }}">
+              {{ $members := where $entries "initial.key" $key }}
+              <h2 id="heading-{{ $key }}">{{ (index $members 0).initial.label }} <span data-group-count>{{ len $members }}개</span></h2>
+              <div data-group-entries>
+                {{ range $members }}
+                  <article class="glossary-entry" id="term-{{ .id }}" data-title="{{ .title }}" data-english="{{ .english }}" data-abbreviations="{{ delimit .abbreviations " " }}" data-aliases="{{ delimit .term_aliases " " }}" data-description="{{ .description }}" data-tags="{{ .tags | jsonify }}">
+                    <div class="glossary-term">
+                      <h3>{{ .title }}</h3>
+                      {{ with .english }}<p class="glossary-english">{{ . }}</p>{{ end }}
+                      {{ $names := .abbreviations | append .term_aliases | uniq }}
+                      {{ with $names }}<p class="glossary-aliases">{{ delimit . "・" }}</p>{{ end }}
+                      <ul class="glossary-tags" aria-label="태그">{{ range .tags | uniq }}<li>{{ . }}</li>{{ end }}</ul>
+                    </div>
+                    <div class="glossary-definition"><p>{{ .description }}</p>{{ partial "glossary/links.html" . }}</div>
+                  </article>
+                {{ end }}
+              </div>
+            </section>
+          {{ end }}
+        </div>
+        <div class="empty-state" data-glossary-empty{{ if $entries }} hidden{{ end }}><p>일치하는 용어가 없습니다.</p><p>다른 검색어를 입력하거나 태그 필터를 바꿔 보세요.</p><button type="button" data-reset-glossary hidden>검색과 필터 초기화</button></div>
+      </div>
+    </div>
+  </div>
+  {{ $script := resources.Get "js/glossary.js" | minify | fingerprint }}
+  <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}" defer></script>
+{{ end }}

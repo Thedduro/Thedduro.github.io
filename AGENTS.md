@@ -9,6 +9,7 @@ Hugo와 GitHub Pages로 운영하는 개인 기술 블로그다. 개발자가 �
 | 경로 | 역할 |
 | --- | --- |
 | `content/posts/` | 게시물 Markdown 원본과 글 목록 `_index.md` |
+| `data/glossary.yaml`, `content/glossary/_index.md` | 사전 데이터와 목록 메타데이터 |
 | `content/about.md`, `content/tags/` | 소개 페이지와 태그 목록 |
 | `archetypes/`, `hugo.toml` | 새 글 템플릿과 사이트 설정 |
 | `layouts/`, `assets/` | 자체 Hugo 템플릿, CSS, JavaScript |
@@ -35,6 +36,7 @@ Hugo와 GitHub Pages로 운영하는 개인 기술 블로그다. 개발자가 �
 | [optimize-search-seo](.agents/skills/optimize-search-seo/SKILL.md) | 일반 검색엔진 우선의 SEO 설정과 게시글 메타데이터·정보 구조·검색 등록 검증 |
 | [research-tech-topic](.agents/skills/research-tech-topic/SKILL.md) | 기술 조사, 사실 검증, 버전·API 차이 확인 |
 | [write-tech-post](.agents/skills/write-tech-post/SKILL.md) | 새 기술 게시물의 문체 파악, 구성과 초안 작성 |
+| [manage-glossary](.agents/skills/manage-glossary/SKILL.md) | 글의 핵심 용어 선별·중복 확인·사전 등록과 관련 글 연결 |
 | [prepare-post-visuals](.agents/skills/prepare-post-visuals/SKILL.md) | 게시물 작성·수정 중 기술 개념의 이해를 돕는 시각 자료가 필요할 때 판단과 준비 |
 | [review-tech-post](.agents/skills/review-tech-post/SKILL.md) | 새 초안 또는 기존 글의 기술·문체 검수와 필요한 수정 |
 
@@ -43,6 +45,7 @@ Hugo와 GitHub Pages로 운영하는 개인 기술 블로그다. 개발자가 �
 - 사이트 SEO 작업과 게시글 작성·수정·검수에서는 [optimize-search-seo](.agents/skills/optimize-search-seo/SKILL.md)를 함께 참조한다. 세부 검색 정책은 해당 Skill이 관리한다.
 - **기술 블로그 작성:** 필요한 경우 research-tech-topic → write-tech-post → review-tech-post → 검수된 최종 Markdown 저장. 제공된 근거가 충분하면 조사를 중복하지 않는다.
 - **단순 기술 조사:** research-tech-topic → 조사 결과 전달. 게시물을 자동 생성하지 않는다.
+- **사전 연동:** 새 글 작성 또는 기존 글의 개념 설명 수정 후 manage-glossary를 적용한다. 읽기 전용 검토·오탈자 수정은 제외한다.
 - **기존 게시물 검수:** review-tech-post → 대상 글의 문제를 수정하고 검수 결과 전달.
 - **기존 게시물 수정:** review-tech-post를 기준으로 검수 → 요청과 관련된 부분만 수정 → 수정 부분 재확인.
 - 작성·수정 중 시각 자료가 필요하다고 판단되면 prepare-post-visuals를 사용한다. 작성에서는 초안 이후 최종 검수 전에 적용하고, 검수 중 필요해졌다면 적용 후 변경 부분을 다시 검수한다. 세부 시각 자료 규칙은 해당 Skill에 위임하며, 필요하지 않으면 이 단계를 생략한다.

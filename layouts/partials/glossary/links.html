@@ -1,0 +1,9 @@
+{{ with .terms }}
+  <div class="glossary-related-terms"><span>관련 용어</span><ul>{{ range . }}<li><a href="{{ .url }}">{{ .title }}</a></li>{{ end }}</ul></div>
+{{ end }}
+{{ with .posts }}
+  <div class="glossary-related-posts"><p>관련 글</p><ul>{{ range . }}<li><a href="{{ .RelPermalink }}">{{ .Title }} <span aria-hidden="true">→</span></a></li>{{ end }}</ul></div>
+{{ end }}
+{{ with .sources }}
+  <div class="glossary-sources">참고: {{ range $i, $source := . }}{{ if $i }} · {{ end }}<a href="{{ .url }}">{{ .title }}</a>{{ end }}</div>
+{{ end }}

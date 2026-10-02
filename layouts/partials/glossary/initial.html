@@ -1,0 +1,15 @@
+{{- $first := upper (substr (strings.TrimSpace .) 0 1) -}}
+{{- $label := "기타" -}}
+{{- $order := "2" -}}
+{{- $starts := slice "가" "나" "다" "라" "마" "바" "사" "아" "자" "차" "카" "타" "파" "하" -}}
+{{- $labels := slice "ㄱ" "ㄴ" "ㄷ" "ㄹ" "ㅁ" "ㅂ" "ㅅ" "ㅇ" "ㅈ" "ㅊ" "ㅋ" "ㅌ" "ㅍ" "ㅎ" -}}
+{{- if and (ge $first "가") (le $first "힣") -}}
+  {{- range $i, $start := $starts -}}
+    {{- if ge $first $start -}}{{- $label = index $labels $i -}}{{- end -}}
+  {{- end -}}
+  {{- $order = "0" -}}
+{{- else if and (ge $first "A") (le $first "Z") -}}
+  {{- $label = $first -}}
+  {{- $order = "1" -}}
+{{- end -}}
+{{- return (dict "label" $label "key" (printf "%s-%s" $order $label)) -}}

@@ -1,0 +1,156 @@
+# 용어는 이 목록에 추가합니다. id는 사전 내부 링크에 사용하므로 유지합니다.
+- id: cors
+  title: CORS
+  english: Cross-Origin Resource Sharing
+  abbreviations: []
+  term_aliases:
+  - 교차 출처 리소스 공유
+  description: 서버가 HTTP 헤더로 허용할 출처를 알려 주어, 브라우저가 다른 출처의 응답을 스크립트에 제공할지 판단하는 방식이다. 사용자 인증이나 API 접근 권한 검사를
+    대신하지 않는다.
+  tags:
+  - 웹
+  related_terms: []
+  related_posts:
+  - /posts/cloudflare-blog-view-counter-2
+  sources:
+  - title: MDN CORS
+    url: https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS
+  draft: false
+- id: data-lake
+  title: 데이터 레이크
+  english: Data Lake
+  abbreviations:
+  - DL # 약어 사용 근거: https://arxiv.org/abs/2107.02885
+  term_aliases:
+  - 레이크
+  description: 정형·반정형·비정형 데이터를 다양한 형식으로 보관하고, 필요에 따라 처리·분석할 수 있게 하는 저장 기반이다. 원본뿐 아니라 정제된 데이터도 저장할 수 있다.
+  tags:
+  - 데이터 엔지니어링
+  - 스토리지
+  related_terms:
+  - data-warehouse
+  - data-lakehouse
+  related_posts:
+  - /posts/data-platform-basics-1
+  sources:
+  - title: AWS 데이터 레이크
+    url: https://aws.amazon.com/what-is/data-lake/
+  draft: false
+- id: data-lakehouse
+  title: 데이터 레이크하우스
+  english: Data Lakehouse
+  abbreviations: []
+  term_aliases:
+  - 레이크하우스
+  - Lakehouse
+  description: 데이터 레이크의 파일 기반 저장에 테이블의 트랜잭션·스키마 관리 등 웨어하우스의 데이터 관리 기능을 결합한 아키텍처다. 같은 데이터 기반에서 SQL 분석과
+    다양한 처리 작업을 지원한다.
+  tags:
+  - 데이터 엔지니어링
+  - 스토리지
+  related_terms:
+  - data-lake
+  - data-warehouse
+  related_posts:
+  - /posts/data-platform-basics-1
+  sources:
+  - title: Databricks 레이크하우스
+    url: https://www.databricks.com/blog/what-is-data-lakehouse
+  draft: false
+- id: data-mart
+  title: 데이터 마트
+  english: Data Mart
+  abbreviations:
+  - DM # 약어 사용 근거: https://docs.ifs.com/techdocs/26r1/050_reporting/020_data/010_information_sources/050_data_mart_access/010_overview/015_incr_load_of_is/
+  term_aliases:
+  - 마트
+  description: 특정 부서나 분석 주제에 맞춰 구성한 데이터 영역이다. 상세 데이터나 집계 결과를 테이블·뷰 등으로 제공하며, 반드시 별도 저장소일 필요는 없다.
+  tags:
+  - 데이터 엔지니어링
+  related_terms:
+  - data-warehouse
+  - data-lakehouse
+  related_posts:
+  - /posts/data-platform-basics-1
+  - /posts/data-platform-basics-2
+  sources:
+  - title: AWS 데이터 마트
+    url: https://aws.amazon.com/what-is/data-mart/
+  draft: false
+- id: data-warehouse
+  title: 데이터 웨어하우스
+  english: Data Warehouse
+  abbreviations:
+  - DW
+  term_aliases:
+  - 웨어하우스
+  description: 여러 원천의 데이터를 분석에 적합한 공통 구조로 통합해 저장하고 조회하는 시스템이다. 운영 업무의 개별 거래 처리보다 여러 데이터를 함께 분석하는 데 초점을
+    둔다.
+  tags:
+  - 데이터 엔지니어링
+  - 스토리지
+  related_terms:
+  - data-lake
+  - data-mart
+  related_posts:
+  - /posts/data-platform-basics-1
+  sources:
+  - title: AWS 데이터 웨어하우스
+    url: https://aws.amazon.com/what-is/data-warehouse/
+  draft: false
+- id: durable-objects
+  title: Durable Objects
+  english: ''
+  abbreviations:
+  - DO
+  term_aliases:
+  - 듀러블 오브젝트
+  - 듀러블 객체
+  description: 고유한 ID별로 실행 상태와 영속 저장소를 함께 제공하는 Cloudflare의 컴퓨팅 서비스다. 같은 ID로 들어오는 요청을 하나의 객체에서 조정하며, 카운터나
+    실시간 협업 상태 등을 관리할 수 있다.
+  tags:
+  - 클라우드
+  related_terms: []
+  related_posts:
+  - /posts/cloudflare-blog-view-counter-1
+  - /posts/cloudflare-blog-view-counter-2
+  sources:
+  - title: Cloudflare Durable Objects
+    url: https://developers.cloudflare.com/durable-objects/
+  draft: false
+- id: lazy-evaluation
+  title: 지연 평가
+  english: Lazy Evaluation
+  abbreviations: []
+  term_aliases:
+  - 지연 연산
+  description: 연산 결과가 필요할 때까지 실제 계산을 미루는 평가 방식이다. 예를 들어 Spark에서는 변환을 기록해 두고 액션이 결과를 요구할 때 필요한 계산을 수행한다.
+  tags:
+  - 데이터 엔지니어링
+  related_terms:
+  - spark-cache
+  related_posts:
+  - /posts/spark-cache-when-to-use
+  sources:
+  - title: Spark 3.5.6 RDD 연산
+    url: https://spark.apache.org/docs/3.5.6/rdd-programming-guide.html#rdd-operations
+  draft: false
+- id: spark-cache
+  title: Spark 캐시
+  english: Spark Cache
+  abbreviations: []
+  term_aliases:
+  - 스파크 캐시
+  description: Apache Spark에서 RDD나 DataFrame의 계산 결과를 파티션 단위로 저장해 후속 작업에서 재사용하는 기능이다. cache()나 persist()로 저장을 지정하고, 액션이 필요한 파티션을 계산할 때 결과를 저장한다. 저장 위치는 대상 API와 저장 수준에 따라 메모리 또는 디스크 등이 될 수 있다.
+  tags:
+  - 데이터 엔지니어링
+  related_terms:
+  - lazy-evaluation
+  related_posts:
+  - /posts/spark-cache-when-to-use
+  sources:
+  - title: Spark 3.5.6 DataFrame.cache()
+    url: https://spark.apache.org/docs/3.5.6/api/python/reference/pyspark.sql/api/pyspark.sql.DataFrame.cache.html
+  - title: Spark 3.5.6 Persistence
+    url: https://spark.apache.org/docs/3.5.6/rdd-programming-guide.html#rdd-persistence
+  draft: false

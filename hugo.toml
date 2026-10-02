@@ -52,6 +52,11 @@ summaryLength = 30
   weight = 20
 
 [[menus.main]]
+  name = '사전'
+  pageRef = '/glossary'
+  weight = 25
+
+[[menus.main]]
   name = '태그'
   pageRef = '/tags'
   weight = 30
