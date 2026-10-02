@@ -8,7 +8,7 @@
     <div class="header-actions">
       <nav class="site-nav" aria-label="주요 메뉴">
         {{ range site.Menus.main }}
-          <a href="{{ .URL }}"{{ if $.IsMenuCurrent "main" . }} class="active" aria-current="page"{{ end }}>{{ .Name }}</a>
+          <a href="{{ .URL }}"{{ if $.IsMenuCurrent "main" . }} class="active" aria-current="page"{{ else if $.HasMenuCurrent "main" . }} class="active"{{ end }}>{{ .Name }}</a>
         {{ end }}
       </nav>
       <button class="theme-toggle" type="button" aria-label="다크 모드로 전환" title="색상 모드 전환">

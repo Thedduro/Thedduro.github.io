@@ -1,0 +1,58 @@
+{{- $entries := slice -}}
+{{- $ids := slice -}}
+{{- $titles := slice -}}
+{{- $all := hugo.Data.glossary | default slice -}}
+{{- if not (reflect.IsSlice $all) -}}
+  {{- errorf "data/glossary.yaml: 용어 목록은 배열이어야 합니다" -}}
+  {{- $all = slice -}}
+{{- end -}}
+{{- range $all -}}
+  {{- $term := . -}}
+  {{- range slice "id" "title" "description" -}}
+    {{- $value := index $term . -}}
+    {{- if or (ne (printf "%T" $value) "string") (not (strings.TrimSpace (printf "%v" ($value | default "")))) -}}
+      {{- errorf "data/glossary.yaml (%v): %s 문자열이 필요합니다" $term.id . -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if not (findRE `^[a-z0-9]+(-[a-z0-9]+)*$` (printf "%v" .id)) -}}{{- errorf "잘못된 용어 id: %v" .id -}}{{- end -}}
+  {{- if in $ids .id -}}{{- errorf "중복 용어 id: %v" .id -}}{{- end -}}
+  {{- $ids = $ids | append .id -}}
+  {{- $titleKey := lower (printf "%v" .title) | replaceRE `\s+` "" -}}
+  {{- if in $titles $titleKey -}}{{- errorf "중복 용어명: %v" .title -}}{{- end -}}
+  {{- $titles = $titles | append $titleKey -}}
+  {{- if and (isset . "english") (ne (printf "%T" .english) "string") -}}{{- errorf "%v: english는 문자열이어야 합니다" .id -}}{{- end -}}
+  {{- if ne (printf "%T" .draft) "bool" -}}{{- errorf "%v: draft는 true/false여야 합니다" .id -}}{{- end -}}
+  {{- range slice "abbreviations" "term_aliases" "tags" "related_terms" "related_posts" "sources" -}}
+    {{- $values := index $term . -}}
+    {{- if not (reflect.IsSlice $values) -}}
+      {{- errorf "%v: %s는 배열이어야 합니다" $term.id . -}}
+    {{- else if ne . "sources" -}}
+      {{- range $values -}}
+        {{- if or (ne (printf "%T" .) "string") (not (strings.TrimSpace (printf "%v" .))) -}}{{- errorf "%v: 빈 값이 아닌 문자열 항목이 필요합니다" $term.id -}}{{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if not .tags -}}{{- errorf "%v: tags를 하나 이상 지정하세요" .id -}}{{- end -}}
+  {{- range .sources -}}
+    {{- if or (not .title) (not (findRE `^https://` .url)) -}}{{- errorf "%v: 출처 제목과 HTTPS URL이 필요합니다" $term.id -}}{{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $base := "glossary/" | relURL -}}
+{{- range $all -}}
+  {{- $term := . -}}
+  {{- $terms := slice -}}
+  {{- if reflect.IsSlice .related_terms -}}
+    {{- range .related_terms | uniq -}}
+      {{- if not (in $ids .) -}}{{- errorf "%v: related_terms 참조가 없습니다: %v" $term.id . -}}{{- end -}}
+      {{- range where $all "id" . -}}
+        {{- if not .draft -}}{{- $terms = $terms | append (dict "title" .title "url" (printf "%s#term-%s" $base .id)) -}}{{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $posts := partial "glossary/references.html" . -}}
+  {{- if not .draft -}}
+    {{- $initial := partial "glossary/initial.html" .title -}}
+    {{- $entries = $entries | append (merge . (dict "initial" $initial "posts" $posts "terms" $terms "url" (printf "%s#term-%s" $base .id) "sortKey" (printf "%s-%s" $initial.key (lower .title)))) -}}
+  {{- end -}}
+{{- end -}}
+{{- return (sort $entries "sortKey") -}}

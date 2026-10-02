@@ -1,0 +1,11 @@
+{{- $post := . -}}
+{{- $terms := slice -}}
+{{- range partialCached "glossary/entries.html" . -}}
+  {{- if in .posts $post -}}{{- $terms = $terms | append . -}}{{- end -}}
+{{- end -}}
+{{ with $terms }}
+  <aside class="post-glossary" aria-labelledby="post-glossary-title">
+    <h2 id="post-glossary-title">이 글의 용어</h2>
+    <ul>{{ range . }}<li><a href="{{ .url }}">{{ .title }}</a></li>{{ end }}</ul>
+  </aside>
+{{ end }}

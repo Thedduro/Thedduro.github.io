@@ -1,0 +1,18 @@
+{{- $term := . -}}
+{{- $pages := slice -}}
+{{- if reflect.IsSlice .related_posts -}}
+  {{- range .related_posts | uniq -}}
+    {{- if not (findRE `^/posts/[a-z0-9]+(-[a-z0-9]+)*$` (printf "%v" .)) -}}
+      {{- errorf "%v: 잘못된 related_posts 참조 %q (content 기준 경로, 확장자 제외)" $term.id . -}}
+    {{- else if not (fileExists (printf "content%s.md" .)) -}}
+      {{- errorf "%v: related_posts 참조 파일이 없습니다: %s" $term.id . -}}
+    {{- else -}}
+      {{- with site.GetPage . -}}
+        {{- if and .IsPage (eq .Section "posts") (not .Draft) (not (.PublishDate.After now)) -}}
+          {{- $pages = $pages | append . -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $pages -}}

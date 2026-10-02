@@ -38,7 +38,10 @@
         {{ end }}
       </div>
 
-      {{ if eq .Section "posts" }}{{ partial "like-counter.html" . }}{{ end }}
+      {{ if eq .Section "posts" }}
+        {{ partial "glossary/post-terms.html" . }}
+        {{ partial "like-counter.html" . }}
+      {{ end }}
 
       {{ with .GetTerms "tags" }}
         <footer class="article-footer">

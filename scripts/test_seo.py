@@ -45,7 +45,7 @@ class SearchSEOTests(unittest.TestCase):
         cls.root = Path(cls.temp.name)
         cls.source = cls.root / 'source'
         cls.source.mkdir()
-        for name in ('layouts', 'assets', 'static', 'archetypes', 'content'):
+        for name in ('layouts', 'assets', 'static', 'archetypes', 'content', 'data'):
             shutil.copytree(REPO / name, cls.source / name)
         shutil.copy2(REPO / 'hugo.toml', cls.source / 'hugo.toml')
         cls.title = 'A & B "quotes" </script><script>alert(1)</script>'

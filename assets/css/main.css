@@ -89,6 +89,27 @@ img {
   transform: translateY(-150%);
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.post-glossary {
+  max-width: var(--reading-width);
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+.post-glossary h2 { margin: 0 0 12px; font-size: 16px; }
+.post-glossary ul { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.post-glossary a { display: block; padding: 5px 10px; border-radius: 6px; background: var(--accent-soft); color: var(--accent); font-size: 13px; }
+.post-glossary a:hover { text-decoration: underline; }
+
 .skip-link:focus {
   transform: translateY(0);
 }
