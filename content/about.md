@@ -111,15 +111,12 @@ certifications:
   - title: "SQLD (SQL Developer)"
     issuer: "한국데이터산업진흥원"
     date: "2021.06"
-    credential_id: "SQLD-041000591"
   - title: "ADsP (데이터분석준전문가)"
     issuer: "한국데이터산업진흥원"
     date: "2022.03"
-    credential_id: "ADsP-032000622"
   - title: "정보처리기사"
     issuer: "한국산업인력공단 (HRD Korea)"
     date: "2025.06"
-    credential_id: "25201100769K"
 ---
 
 데이터 사이언스 전공으로 시작해 B2B 컨설팅 기업에서 데이터 분석 업무를 수행했습니다. 분석 결과가 장기적인 비즈니스 자산으로 이어지기까지의 어려움을 경험하면서, 데이터를 분석하는 일에서 데이터를 계속 활용할 수 있는 시스템을 만드는 일로 관심을 넓혔습니다.
