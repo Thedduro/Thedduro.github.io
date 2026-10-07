@@ -6,6 +6,8 @@ description: "주문·클릭 데이터가 분석과 모델 개발에 쓰이는 �
 slug: "databricks-basics-1"
 categories: ["Data Engineering"]
 tags: ["Data Engineering", "Databricks", "Apache Spark", "Delta Lake", "Unity Catalog", "Lakeflow Jobs"]
+series: "Databricks 기초"
+seriesOrder: 1
 ---
 
 **Databricks는 데이터 수집·처리, SQL 분석, AI·ML 개발과 그 작업의 운영을 연결하는 데이터 플랫폼이다.** 엔지니어가 데이터를 정제하고, 분석가가 SQL로 조회하고, 모델 개발자가 학습 데이터를 준비하는 일을 공통 데이터와 관리 체계 위에서 수행하도록 돕는다. [Databricks 개요](https://docs.databricks.com/aws/en/introduction/)

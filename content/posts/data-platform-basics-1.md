@@ -1,11 +1,13 @@
 ---
 title: "[데이터플랫폼] 웨어하우스·레이크·레이크하우스·마트의 차이 - 1편"
 date: 2026-09-29T13:38:29+09:00
-draft: fals
+draft: false
 description: "쇼핑몰의 주문·클릭 데이터를 따라가며 데이터 웨어하우스, 레이크, 레이크하우스, 마트에 실제로 무엇을 저장하고 어떻게 조회·갱신하는지 살펴본다."
 slug: "data-platform-basics"
 categories: ["Data Engineering"]
 tags: ["Data Engineering", "Data Platform", "Data Warehouse", "Data Lake", "Lakehouse", "Data Mart"]
+series: "데이터 플랫폼 기초"
+seriesOrder: 1
 ---
 
 데이터 웨어하우스, 데이터 레이크, 레이크하우스, 데이터 마트. 정의만 읽으면 모두 데이터를 모아 분석하는 곳처럼 느껴진다. 실제로 어떤 테이블이나 파일을 만들고, 분석가가 그것을 어떻게 쓰는지까지 봐야 차이가 드러난다.

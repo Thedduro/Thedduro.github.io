@@ -6,6 +6,8 @@ description: "Hugo에 조회수를 표시하고 중복 제한, 목록 일괄 조
 slug: "cloudflare-blog-view-counter-3"
 categories: ["Cloud"]
 tags: ["Cloud", "Cloudflare", "Hugo", "JavaScript", "GitHub Pages"]
+series: "Cloudflare로 블로그에 조회수 붙이기"
+seriesOrder: 3
 ---
 
 2편까지는 요청을 보내면 조회수를 저장하고 반환하는 API를 만들었다. 이제 블로그에 연결해 **글을 열면 조회수를 집계하고, 글 목록에서는 저장된 숫자만 보여주도록** 만든다.

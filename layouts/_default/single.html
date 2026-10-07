@@ -50,6 +50,9 @@
           </ul>
         </footer>
       {{ end }}
+      {{ if eq .Section "posts" }}
+        {{ partial "post-connections.html" . }}
+      {{ end }}
     </article>
   </div>
 {{ end }}

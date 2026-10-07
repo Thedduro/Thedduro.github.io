@@ -6,6 +6,8 @@ description: "SQLite-backed Durable Object에 게시글별 조회수를 저장�
 categories: ["Cloud"]
 tags: ["Cloud", "Cloudflare", "Durable Objects", "TypeScript", "SQLite"]
 slug: "cloudflare-blog-view-counter-2"
+series: "Cloudflare로 블로그에 조회수 붙이기"
+seriesOrder: 2
 ---
 
 [1편](/posts/cloudflare-blog-view-counter-1/)에서는 Worker와 Durable Object가 포함된 프로젝트를 만들었다. 로컬 서버에 접속하면 `Hello, world!`라는 문구가 나왔지만, 아직 조회수를 저장하는 기능은 없다.

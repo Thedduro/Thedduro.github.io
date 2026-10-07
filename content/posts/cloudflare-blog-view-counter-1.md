@@ -6,6 +6,8 @@ description: "Cloudflare Workers·Durable Objects의 역할을 이해하고, Typ
 categories: ["Cloud"]
 tags: ["Cloud", "Cloudflare", "Durable Objects", "Hugo", "GitHub Pages"]
 slug: "cloudflare-blog-view-counter-1"
+series: "Cloudflare로 블로그에 조회수 붙이기"
+seriesOrder: 1
 ---
 
 GitHub Pages로 운영하는 블로그에 글별 조회수를 붙이고 싶었다. 처음에는 숫자 하나를 읽고 1을 더하면 되는 일처럼 보였다. 그런데 그 숫자를 어디에 저장할지부터 정해야 했다. 브라우저에 저장하면 다른 방문자와 공유할 수 없고, 블로그의 HTML 파일을 바꾸는 방식으로는 방문할 때마다 집계하기 어렵다.

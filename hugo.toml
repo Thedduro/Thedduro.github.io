@@ -20,6 +20,16 @@ summaryLength = 30
   category = 'categories'
   tag = 'tags'
 
+# 태그로 관련 글을 찾되 대부분의 글에 붙은 공통 태그는 제외한다.
+[related]
+  includeNewer = true
+  threshold = 20
+  toLower = true
+  [[related.indices]]
+    name = 'tags'
+    weight = 100
+    cardinalityThreshold = 60
+
 [markup]
   [markup.highlight]
     noClasses = false

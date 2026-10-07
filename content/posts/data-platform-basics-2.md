@@ -6,6 +6,8 @@ description: "1편의 주문상품 테이블과 상품팀 마트를 매일 갱�
 slug: "data-platform-comparison"
 categories: ["Data Engineering"]
 tags: ["Data Engineering", "Data Platform", "Databricks", "Snowflake", "BigQuery", "Redshift", "Microsoft Fabric"]
+series: "데이터 플랫폼 기초"
+seriesOrder: 2
 ---
 
 1편에서는 주문상품 한 항목당 한 행을 가진 `fact_order_item`을 만들고, 날짜·상품 분류별로 집계한 `mart_product_daily_sales`를 상품팀에 제공했다. 그런데 이 마트를 한 번 만들었다고 일이 끝나지는 않는다. 다음 날에도 갱신해야 하고 뒤늦게 들어온 환불을 반영해야 하며, 작업이 중간에 실패해도 같은 주문을 중복 집계하지 않고 복구해야 한다.

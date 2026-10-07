@@ -1,0 +1,61 @@
+{{ $current := . }}
+{{ $posts := where site.RegularPages "Section" "posts" }}
+{{ $posts = where $posts "Draft" false }}
+{{ $posts = where $posts "PublishDate" "le" now }}
+{{ $seriesPosts := slice }}
+{{ with .Params.series }}
+  {{ $seriesPosts = sort (where $posts "Params.series" .) "Params.seriesOrder" "asc" }}
+{{ end }}
+
+{{ if gt (len $seriesPosts) 1 }}
+  {{ $previous := false }}
+  {{ $next := false }}
+  {{ range $index, $post := $seriesPosts }}
+    {{ if eq $post.RelPermalink $current.RelPermalink }}
+      {{ if gt $index 0 }}{{ $previous = index $seriesPosts (sub $index 1) }}{{ end }}
+      {{ if lt $index (sub (len $seriesPosts) 1) }}{{ $next = index $seriesPosts (add $index 1) }}{{ end }}
+    {{ end }}
+  {{ end }}
+  <section class="post-connections post-series" aria-labelledby="post-series-title">
+    <p class="eyebrow">시리즈</p>
+    <h2 id="post-series-title">{{ .Params.series }}</h2>
+    <ol class="series-list">
+      {{ range $seriesPosts }}
+        <li>
+          {{ if eq .RelPermalink $current.RelPermalink }}
+            <span class="series-current" aria-current="page">{{ .Title }} <small>현재 글</small></span>
+          {{ else }}
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          {{ end }}
+        </li>
+      {{ end }}
+    </ol>
+    <nav class="series-navigation" aria-label="시리즈 이전·다음 글">
+      {{ with $previous }}
+        <a class="series-step series-previous" href="{{ .RelPermalink }}">
+          <span>← 이전 글</span><strong>{{ .Title }}</strong>
+        </a>
+      {{ end }}
+      {{ with $next }}
+        <a class="series-step series-next" href="{{ .RelPermalink }}">
+          <span>다음 글 →</span><strong>{{ .Title }}</strong>
+        </a>
+      {{ end }}
+    </nav>
+  </section>
+{{ end }}
+
+{{ $related := $posts.Related $current }}
+{{ with .Params.series }}
+  {{ $related = where $related "Params.series" "ne" . }}
+{{ end }}
+{{ with first 3 $related }}
+  <section class="post-connections related-posts" aria-labelledby="related-posts-title">
+    <h2 id="related-posts-title">함께 읽으면 좋은 글</h2>
+    <div class="related-post-list">
+      {{ range . }}
+        {{ partial "post-card.html" (dict "page" . "headingLevel" 3) }}
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

@@ -6,6 +6,8 @@ description: "Databricks Notebook에서 Bronze·Silver·Gold Delta 테이블을 
 slug: "databricks-basics-2"
 categories: ["Data Engineering"]
 tags: ["Data Engineering", "Databricks", "Delta Lake", "Medallion Architecture", "SQL"]
+series: "Databricks 기초"
+seriesOrder: 2
 ---
 
 [1편](/posts/databricks-basics-1/)에서는 Databricks의 구성 요소와 레이크하우스의 장점을 살펴봤다. 이번에는 **Notebook에서 판매 데이터를 읽어 Bronze·Silver·Gold 테이블을 만든다.** 데이터를 어디에 저장할지에 이어, 어떤 상태로 보관하고 언제 정제·집계할지 직접 구성하는 실습이다.
