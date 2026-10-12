@@ -1,4 +1,19 @@
 # 용어는 이 목록에 추가합니다. id는 사전 내부 링크에 사용하므로 유지합니다.
+- id: aws-certification
+  title: AWS Certification
+  english: ""
+  abbreviations: []
+  term_aliases: [AWS 자격증, AWS 인증]
+  description: AWS가 감독 시험을 통해 클라우드·AI 관련 지식과 역할별 역량을 평가하고 부여하는 자격이다. 기술 분야와 비즈니스 역할에 따라 평가 범위가 다르며, 강의 수료증과는 구분된다.
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-certification-guide]
+  sources:
+  - title: AWS Certification FAQ
+    url: https://aws.amazon.com/certification/faqs/
+  - title: AWS Certification 시험 가이드
+    url: https://docs.aws.amazon.com/aws-certification/latest/examguides/
+  draft: true
 - id: cors
   title: CORS
   english: Cross-Origin Resource Sharing
