@@ -213,7 +213,7 @@
   description: "Parquet 데이터 파일에 트랜잭션 로그를 더해 테이블 상태와 변경을 관리하는 오픈 소스 기술이다. 호환되는 엔진을 통해 트랜잭션과 스키마 검사 등을 지원하며 Databricks 플랫폼 자체와는 구분된다."
   tags: [데이터 엔지니어링]
   related_terms: ["data-lakehouse", "apache-spark", "apache-parquet"]
-  related_posts: [/posts/databricks-basics-5, /posts/databricks-basics-4, /posts/databricks-basics-2, /posts/databricks-basics-1]
+  related_posts: [/posts/databricks-basics-6, /posts/databricks-basics-5, /posts/databricks-basics-4, /posts/databricks-basics-2, /posts/databricks-basics-1]
   sources:
   - title: "Delta Lake 공식 문서"
     url: https://docs.databricks.com/aws/en/delta/
@@ -339,7 +339,7 @@
   description: "Databricks에서 코드 셀, 설명, 실행 결과와 시각화를 함께 작성하는 작업 문서다. 공동 편집을 지원하며, 코드를 실행하려면 지원되는 연산 자원이 필요하다."
   tags: ["데이터 엔지니어링"]
   related_terms: ["databricks-workspace", "databricks-compute", "apache-spark"]
-  related_posts: [/posts/databricks-basics-5, /posts/databricks-basics-4, /posts/databricks-basics-3, /posts/databricks-basics-2, /posts/databricks-basics-1]
+  related_posts: [/posts/databricks-basics-6, /posts/databricks-basics-5, /posts/databricks-basics-4, /posts/databricks-basics-3, /posts/databricks-basics-2, /posts/databricks-basics-1]
   sources:
   - title: "Databricks Notebook 공식 문서"
     url: https://docs.databricks.com/aws/en/notebooks/
@@ -616,4 +616,50 @@
     url: https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.Window.html
   - title: Databricks row_number
     url: https://docs.databricks.com/aws/en/sql/language-manual/functions/row_number
+  draft: false
+
+
+- id: delta-table-history
+  title: Delta 테이블 이력
+  english: Delta Table History
+  abbreviations: []
+  term_aliases: [델타 히스토리, Delta History]
+  description: Delta Lake 테이블에 기록된 변경 작업을 버전·시각·실행 주체·작업별 지표 등으로 확인하는 이력이다. DESCRIBE HISTORY로 조회하며, 특정 버전의 실제 행을 읽는 타임 트래블과는 조회 대상이 다르다.
+  tags: [데이터 엔지니어링]
+  related_terms: [delta-lake, delta-time-travel, delta-lake-optimize]
+  related_posts: [/posts/databricks-basics-6]
+  sources:
+  - title: Databricks DESCRIBE HISTORY
+    url: https://docs.databricks.com/aws/en/sql/language-manual/delta-describe-history
+  - title: 테이블 이력과 작업 지표
+    url: https://docs.databricks.com/aws/en/tables/history-schema
+  draft: false
+
+- id: delta-time-travel
+  title: Delta Lake 타임 트래블
+  english: Delta Lake Time Travel
+  abbreviations: []
+  term_aliases: [타임 트래블, Time Travel]
+  description: Delta Lake 테이블을 버전 번호나 시각으로 지정해 이전 상태의 데이터를 조회하는 기능이다. 조회만으로 현재 테이블을 변경하지 않으며, 해당 버전의 로그와 데이터 파일이 남아 있고 실행 환경의 보존 조건을 충족해야 한다.
+  tags: [데이터 엔지니어링]
+  related_terms: [delta-lake, delta-table-history]
+  related_posts: [/posts/databricks-basics-6]
+  sources:
+  - title: Databricks Time Travel
+    url: https://docs.databricks.com/aws/en/tables/history#time-travel
+  draft: false
+
+
+- id: delta-lake-optimize
+  title: Delta Lake OPTIMIZE
+  english: ""
+  abbreviations: []
+  term_aliases: [OPTIMIZE]
+  description: Delta Lake 테이블의 데이터 파일을 다시 구성해 파일 배치를 개선하는 연산이다. 조회되는 행의 값은 유지하지만 파일 구성이 바뀌므로 테이블 이력에 새 버전으로 기록될 수 있다.
+  tags: [데이터 엔지니어링, 스토리지]
+  related_terms: [delta-lake, delta-table-history]
+  related_posts: [/posts/databricks-basics-6]
+  sources:
+  - title: Databricks 데이터 파일 배치 최적화
+    url: https://docs.databricks.com/aws/en/tables/operations/optimize
   draft: false
