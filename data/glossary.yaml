@@ -213,7 +213,7 @@
   description: "Parquet 데이터 파일에 트랜잭션 로그를 더해 테이블 상태와 변경을 관리하는 오픈 소스 기술이다. 호환되는 엔진을 통해 트랜잭션과 스키마 검사 등을 지원하며 Databricks 플랫폼 자체와는 구분된다."
   tags: [데이터 엔지니어링]
   related_terms: ["data-lakehouse", "apache-spark", "apache-parquet"]
-  related_posts: [/posts/databricks-basics-4, /posts/databricks-basics-2, /posts/databricks-basics-1]
+  related_posts: [/posts/databricks-basics-5, /posts/databricks-basics-4, /posts/databricks-basics-2, /posts/databricks-basics-1]
   sources:
   - title: "Delta Lake 공식 문서"
     url: https://docs.databricks.com/aws/en/delta/
@@ -227,7 +227,7 @@
   description: "Databricks에서 데이터·AI 자산의 탐색, 접근 권한, 계보 등을 관리하는 거버넌스 계층이다. 테이블은 catalog.schema.table 이름으로 참조하며, 실제 저장 경로와 논리적 이름은 구분된다."
   tags: [데이터 엔지니어링]
   related_terms: ["databricks"]
-  related_posts: [/posts/databricks-basics-1]
+  related_posts: [/posts/databricks-basics-5, /posts/databricks-basics-1]
   sources:
   - title: "Unity Catalog 공식 문서"
     url: https://docs.databricks.com/aws/en/data-governance/unity-catalog/
@@ -241,7 +241,7 @@
   description: "Databricks에서 노트북·SQL 등의 task를 job으로 묶어 일정, 의존 관계와 실행 이력을 관리하는 작업 실행 관리 기능이다. 실제 연산은 각 task에 맞는 compute에서 수행한다."
   tags: [데이터 엔지니어링]
   related_terms: ["databricks", "databricks-notebook", "databricks-compute", "lakeflow-job-task", "lakeflow-task-dependency", "lakeflow-job-trigger", "lakeflow-job-schedule"]
-  related_posts: [/posts/databricks-basics-4, /posts/databricks-basics-3, /posts/databricks-basics-1]
+  related_posts: [/posts/databricks-basics-5, /posts/databricks-basics-4, /posts/databricks-basics-3, /posts/databricks-basics-1]
   sources:
   - title: "Lakeflow Jobs 공식 문서"
     url: https://docs.databricks.com/aws/en/jobs/
@@ -339,7 +339,7 @@
   description: "Databricks에서 코드 셀, 설명, 실행 결과와 시각화를 함께 작성하는 작업 문서다. 공동 편집을 지원하며, 코드를 실행하려면 지원되는 연산 자원이 필요하다."
   tags: ["데이터 엔지니어링"]
   related_terms: ["databricks-workspace", "databricks-compute", "apache-spark"]
-  related_posts: [/posts/databricks-basics-4, /posts/databricks-basics-3, /posts/databricks-basics-2, /posts/databricks-basics-1]
+  related_posts: [/posts/databricks-basics-5, /posts/databricks-basics-4, /posts/databricks-basics-3, /posts/databricks-basics-2, /posts/databricks-basics-1]
   sources:
   - title: "Databricks Notebook 공식 문서"
     url: https://docs.databricks.com/aws/en/notebooks/
@@ -409,7 +409,7 @@
   description: Apache Spark를 Python에서 사용하는 API다. DataFrame을 읽고 변환·집계하거나 결과를 저장할 수 있으며, Spark SQL과 같은 실행 엔진으로 데이터를 처리한다.
   tags: [데이터 엔지니어링]
   related_terms: [apache-spark, spark-dataframe]
-  related_posts: [/posts/databricks-basics-4, /posts/databricks-basics-3, /posts/databricks-basics-2]
+  related_posts: [/posts/databricks-basics-5, /posts/databricks-basics-4, /posts/databricks-basics-3, /posts/databricks-basics-2]
   sources:
   - title: Apache Spark PySpark 개요
     url: https://spark.apache.org/docs/latest/api/python/index.html
@@ -423,7 +423,7 @@
   description: Apache Spark에서 이름과 자료형이 있는 컬럼으로 구성한 분산 데이터 구조다. 테이블처럼 행과 컬럼을 다루며, 선택·필터·집계 등의 연산을 DataFrame API로 작성할 수 있다.
   tags: [데이터 엔지니어링]
   related_terms: [apache-spark, pyspark]
-  related_posts: [/posts/databricks-basics-4, /posts/databricks-basics-3, /posts/databricks-basics-2]
+  related_posts: [/posts/databricks-basics-5, /posts/databricks-basics-4, /posts/databricks-basics-3, /posts/databricks-basics-2]
   sources:
   - title: Apache Spark SQL과 DataFrame
     url: https://spark.apache.org/docs/latest/sql-programming-guide.html
@@ -465,7 +465,7 @@
   description: Databricks Unity Catalog에서 카탈로그 아래에 테이블·뷰 등의 자산을 묶는 이름 공간이다. catalog.schema.table 구조의 두 번째 단계이며, 테이블의 컬럼·자료형을 뜻하는 스키마와는 구분된다.
   tags: [데이터 엔지니어링]
   related_terms: [unity-catalog, unity-catalog-catalog]
-  related_posts: [/posts/databricks-basics-2]
+  related_posts: [/posts/databricks-basics-5, /posts/databricks-basics-2]
   sources:
   - title: Databricks 스키마
     url: https://docs.databricks.com/aws/en/schemas/
@@ -508,7 +508,7 @@
   description: Databricks Lakeflow Jobs의 job 안에서 Notebook 실행이나 SQL 처리 등을 수행하는 작업 단위다. 각 task에 실행할 코드와 연산 자원을 설정하고, 다른 task와의 의존 관계로 실행 순서를 정할 수 있다.
   tags: [데이터 엔지니어링]
   related_terms: [lakeflow-jobs, databricks-notebook, databricks-compute, lakeflow-task-dependency]
-  related_posts: [/posts/databricks-basics-4, /posts/databricks-basics-3]
+  related_posts: [/posts/databricks-basics-5, /posts/databricks-basics-4, /posts/databricks-basics-3]
   sources:
   - title: Lakeflow Jobs task 설정
     url: https://docs.databricks.com/aws/en/jobs/configure-task
@@ -522,7 +522,7 @@
   description: Databricks Lakeflow Jobs에서 task가 기다릴 선행 작업과 실행 조건을 정하는 관계다. Depends on으로 선행 task를 지정하고 Run if로 성공·실패 등의 조건을 선택하며, 기본값인 All succeeded는 지정한 선행 작업이 모두 성공해야 실행한다.
   tags: [데이터 엔지니어링]
   related_terms: [lakeflow-jobs, lakeflow-job-task, lakeflow-job-trigger]
-  related_posts: [/posts/databricks-basics-4, /posts/databricks-basics-3]
+  related_posts: [/posts/databricks-basics-5, /posts/databricks-basics-4, /posts/databricks-basics-3]
   sources:
   - title: Lakeflow Jobs task 의존 관계
     url: https://docs.databricks.com/aws/en/jobs/run-if
@@ -537,7 +537,7 @@
   description: Delta Lake에서 입력과 대상 테이블을 조건으로 비교해 일치하는 행의 수정·삭제와 일치하지 않는 행의 추가를 수행하는 연산이다. 같은 대상 행을 여러 입력 행으로 수정하려 하면 사용할 값이 모호해질 수 있으므로 입력의 키와 중복을 확인해야 한다.
   tags: [데이터 엔지니어링]
   related_terms: [delta-lake, upsert, idempotence]
-  related_posts: [/posts/databricks-basics-4]
+  related_posts: [/posts/databricks-basics-5, /posts/databricks-basics-4]
   sources:
   - title: Databricks MERGE INTO
     url: https://docs.databricks.com/aws/en/sql/language-manual/delta-merge-into
@@ -551,7 +551,7 @@
   description: 같은 연산을 여러 번 적용해도 한 번 적용했을 때와 결과가 같은 성질이다. 데이터 갱신에서는 동일한 입력을 재처리해도 중복 행이나 누적 값이 생기지 않도록 키와 갱신 규칙을 설계하는 데 사용한다.
   tags: [데이터 엔지니어링]
   related_terms: [delta-lake-merge]
-  related_posts: [/posts/databricks-basics-4]
+  related_posts: [/posts/databricks-basics-5, /posts/databricks-basics-4]
   sources:
   - title: RFC 9110 멱등 메서드
     url: https://www.rfc-editor.org/rfc/rfc9110.html#name-idempotent-methods
@@ -566,8 +566,54 @@
   description: 식별 조건에 맞는 기존 행이 있으면 수정하고, 없으면 새 행을 추가하는 데이터 갱신 방식이다. Delta Lake에서는 MERGE의 일치 행 수정과 불일치 행 추가를 조합해 구현할 수 있다.
   tags: [데이터 엔지니어링]
   related_terms: [delta-lake-merge, idempotence]
-  related_posts: [/posts/databricks-basics-4]
+  related_posts: [/posts/databricks-basics-5, /posts/databricks-basics-4]
   sources:
   - title: Databricks Delta Lake upsert
     url: https://docs.databricks.com/aws/en/delta/merge
+  draft: false
+
+
+- id: unity-catalog-volume
+  title: Unity Catalog 볼륨
+  english: Unity Catalog Volume
+  abbreviations: []
+  term_aliases: [볼륨, Volume]
+  description: Databricks Unity Catalog에서 CSV·JSON 등의 파일을 저장하고 접근 권한을 관리하는 객체다. 파일은 /Volumes/catalog/schema/volume/ 경로 아래에서 접근하며, 파일 내용을 Delta 테이블로 적재하는 작업과는 구분된다.
+  tags: [데이터 엔지니어링, 스토리지]
+  related_terms: [unity-catalog, unity-catalog-schema, databricks-copy-into]
+  related_posts: [/posts/databricks-basics-5]
+  sources:
+  - title: Databricks Unity Catalog volumes
+    url: https://docs.databricks.com/aws/en/volumes/
+  draft: false
+
+- id: databricks-copy-into
+  title: Databricks COPY INTO
+  english: ""
+  abbreviations: []
+  term_aliases: [COPY INTO]
+  description: Databricks에서 파일을 기존 Delta 테이블에 적재하는 SQL 명령이다. 기본 설정에서는 같은 대상에 이미 적재한 파일을 건너뛰며, 거래 식별자 기준의 행 수정·중복 처리는 MERGE 등으로 별도 구성한다.
+  tags: [데이터 엔지니어링]
+  related_terms: [unity-catalog-volume, delta-lake, delta-lake-merge, idempotence]
+  related_posts: [/posts/databricks-basics-5]
+  sources:
+  - title: Databricks COPY INTO
+    url: https://docs.databricks.com/aws/en/sql/language-manual/delta-copy-into
+  draft: false
+
+
+- id: spark-window-function
+  title: Spark 윈도 함수
+  english: Spark Window Function
+  abbreviations: []
+  term_aliases: [스파크 윈도 함수]
+  description: Apache Spark에서 분할·정렬 등으로 정한 행 범위를 기준으로 각 행에 순위나 집계 결과를 계산하는 함수다. 예를 들어 거래 식별자별로 변경 순번을 정렬하고 row_number로 최신 행을 고를 수 있다.
+  tags: [데이터 엔지니어링]
+  related_terms: [apache-spark, spark-dataframe, pyspark]
+  related_posts: [/posts/databricks-basics-5]
+  sources:
+  - title: Apache Spark Window
+    url: https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.Window.html
+  - title: Databricks row_number
+    url: https://docs.databricks.com/aws/en/sql/language-manual/functions/row_number
   draft: false
