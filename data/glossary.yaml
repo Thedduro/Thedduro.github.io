@@ -255,10 +255,24 @@
   description: "Databricks에서 SQL 쿼리 실행에 맞춘 연산 자원이다. 분석 데이터를 통합·저장하는 데이터 웨어하우스 전체를 가리키는 말과는 구분된다."
   tags: [데이터 엔지니어링]
   related_terms: ["databricks-sql", "databricks-compute", "data-warehouse"]
-  related_posts: [/posts/databricks-basics-1]
+  related_posts: [/posts/databricks-basics-1, /posts/databricks-applications-1]
   sources:
   - title: "Databricks SQL warehouse 공식 문서"
     url: https://docs.databricks.com/aws/en/compute/sql-warehouse/
+  draft: false
+
+- id: databricks-ai-bi-dashboard
+  title: "Databricks AI/BI 대시보드"
+  english: "Databricks AI/BI dashboards"
+  abbreviations: []
+  term_aliases: ["데이터브릭스 대시보드"]
+  description: "Databricks에서 데이터셋의 조회 결과를 차트·지표·필터로 구성하는 분석 화면이다. Data에서 사용할 데이터를 정의하고 Canvas에서 시각화를 배치하며, 초안과 게시 버전을 따로 관리한다."
+  tags: [데이터 엔지니어링]
+  related_terms: ["databricks-sql", "databricks-sql-warehouse"]
+  related_posts: [/posts/databricks-applications-1]
+  sources:
+  - title: "Databricks 대시보드 구성 공식 문서"
+    url: https://docs.databricks.com/aws/en/dashboards/manage
   draft: false
 
 - id: databricks-genie
