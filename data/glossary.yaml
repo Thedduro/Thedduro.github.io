@@ -255,7 +255,7 @@
   description: "Databricks에서 SQL 쿼리 실행에 맞춘 연산 자원이다. 분석 데이터를 통합·저장하는 데이터 웨어하우스 전체를 가리키는 말과는 구분된다."
   tags: [데이터 엔지니어링]
   related_terms: ["databricks-sql", "databricks-compute", "data-warehouse"]
-  related_posts: [/posts/databricks-basics-1, /posts/databricks-applications-1]
+  related_posts: [/posts/databricks-basics-1, /posts/databricks-applications-1, /posts/databricks-applications-2]
   sources:
   - title: "Databricks SQL warehouse 공식 문서"
     url: https://docs.databricks.com/aws/en/compute/sql-warehouse/
@@ -269,7 +269,7 @@
   description: "Databricks에서 데이터셋의 조회 결과를 차트·지표·필터로 구성하는 분석 화면이다. Data에서 사용할 데이터를 정의하고 Canvas에서 시각화를 배치하며, 초안과 게시 버전을 따로 관리한다."
   tags: [데이터 엔지니어링]
   related_terms: ["databricks-sql", "databricks-sql-warehouse"]
-  related_posts: [/posts/databricks-applications-1]
+  related_posts: [/posts/databricks-applications-1, /posts/databricks-applications-2]
   sources:
   - title: "Databricks 대시보드 구성 공식 문서"
     url: https://docs.databricks.com/aws/en/dashboards/manage
@@ -283,10 +283,68 @@
   description: "Databricks의 AI 사용 환경을 묶는 이름이다. 개발 작업을 돕는 Genie Code, 자연어 데이터 질문을 위한 Genie One, 질문에 사용할 데이터·지표·업무 규칙을 구성하는 Genie Agents를 포함한다."
   tags: [데이터 엔지니어링]
   related_terms: ["databricks", "unity-catalog"]
-  related_posts: [/posts/databricks-basics-1]
+  related_posts: [/posts/databricks-basics-1, /posts/databricks-applications-2]
   sources:
   - title: "Databricks Genie 공식 문서"
     url: https://docs.databricks.com/aws/en/genie/
+  draft: false
+
+- id: databricks-genie-agent
+  title: "Databricks Genie Agent"
+  english: ""
+  abbreviations: []
+  term_aliases: ["지니 에이전트", "Genie Space", "Genie 공간"]
+  description: "Databricks에서 자연어로 데이터를 질문하도록 Unity Catalog의 테이블·뷰, 업무 지침과 예제 SQL 등을 구성하는 분석 대상이다. 질문에 맞는 SQL과 결과를 제공하며, 데이터 조회에는 질문하는 사용자의 권한이 적용된다. 이전 이름은 Genie Space다."
+  tags: [데이터 엔지니어링]
+  related_terms: ["databricks-genie", "unity-catalog", "databricks-sql-warehouse"]
+  related_posts: [/posts/databricks-applications-2]
+  sources:
+  - title: "Databricks Genie Agent 생성과 설정"
+    url: https://docs.databricks.com/aws/en/genie-agents/set-up
+  - title: "Databricks Genie Agent 질문과 결과 확인"
+    url: https://docs.databricks.com/aws/en/genie-agents/talk-to-genie
+  draft: false
+
+- id: databricks-genie-code
+  title: "Databricks Genie Code"
+  english: ""
+  abbreviations: []
+  term_aliases: ["지니 코드"]
+  description: "Databricks에서 자연어로 개발·분석 작업을 요청하는 AI 도구다. 대시보드 작성에서는 데이터셋, 시각화, 필터와 페이지 배치 등을 생성·수정하며, 데이터 질문용 Genie Agent와 역할이 다르다."
+  tags: [데이터 엔지니어링]
+  related_terms: ["databricks-genie", "databricks-ai-bi-dashboard"]
+  related_posts: [/posts/databricks-applications-2]
+  sources:
+  - title: "Genie Code로 대시보드 작성"
+    url: https://docs.databricks.com/aws/en/dashboards/manage/dashboard-agent
+  draft: false
+
+- id: databricks-dashboard-parameter
+  title: "Databricks 대시보드 파라미터"
+  english: "Databricks Dashboard Parameter"
+  abbreviations: []
+  term_aliases: ["대시보드 매개변수"]
+  description: "Databricks AI/BI 대시보드의 데이터셋 SQL에 실행 시 전달하는 입력값이다. :이름 형식으로 참조하고 Canvas의 입력 위젯에 연결할 수 있으며, Notebook 변수나 Notebook 위젯과는 별개다."
+  tags: [데이터 엔지니어링]
+  related_terms: ["databricks-ai-bi-dashboard"]
+  related_posts: [/posts/databricks-applications-2]
+  sources:
+  - title: "Databricks 대시보드 파라미터"
+    url: https://docs.databricks.com/aws/en/dashboards/manage/filters/parameters
+  draft: false
+
+- id: sql-view
+  title: "SQL 뷰"
+  english: "SQL View"
+  abbreviations: []
+  term_aliases: ["뷰"]
+  description: "SQL 조회를 이름으로 저장해 테이블처럼 참조하는 논리적 대상이다. 일반 뷰는 조회 결과 데이터를 별도로 저장하지 않고, 참조한 테이블과 조회 정의를 바탕으로 결과를 제공한다. 결과를 저장하는 구체화된 뷰와는 구분된다."
+  tags: [데이터 엔지니어링]
+  related_terms: []
+  related_posts: [/posts/databricks-applications-2]
+  sources:
+  - title: "Databricks CREATE VIEW"
+    url: https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-syntax-ddl-create-view
   draft: false
 
 - id: databricks-ai-functions
