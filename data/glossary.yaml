@@ -355,10 +355,38 @@
   description: "Databricks의 SQL·노트북 등에서 AI를 이용해 데이터를 분류·요약·추출하거나 모델을 호출하는 함수들이다. 지원되는 모델·실행 환경과 과금 조건은 함수별로 확인해야 한다."
   tags: [데이터 엔지니어링]
   related_terms: ["databricks"]
-  related_posts: [/posts/databricks-basics-1]
+  related_posts: [/posts/databricks-basics-1, /posts/databricks-applications-3]
   sources:
   - title: "Databricks AI Functions 공식 문서"
     url: https://docs.databricks.com/aws/en/large-language-models/ai-functions
+  draft: false
+
+- id: sentiment-analysis
+  title: "감정 분석"
+  english: "Sentiment Analysis"
+  abbreviations: []
+  term_aliases: []
+  description: "텍스트에 드러난 감정이나 평가의 방향을 분류하는 분석이다. 고객 리뷰의 긍정·부정·중립 등을 구분하는 데 사용하며, 분류 범주와 결과의 정확도는 사용하는 모델과 기능에 따라 달라진다."
+  tags: [데이터 엔지니어링]
+  related_terms: ["databricks-ai-functions"]
+  related_posts: [/posts/databricks-applications-3]
+  sources:
+  - title: "Databricks ai_analyze_sentiment"
+    url: https://docs.databricks.com/aws/en/sql/language-manual/functions/ai_analyze_sentiment
+  draft: false
+
+- id: databricks-variant
+  title: "Databricks VARIANT"
+  english: ""
+  abbreviations: []
+  term_aliases: ["배리언트 타입"]
+  description: "Databricks에서 객체·배열·스칼라 값 등의 반정형 데이터를 저장하는 자료형이다. 콜론 경로 연산자나 variant_get으로 내부 값을 읽고 필요한 SQL 자료형으로 변환할 수 있다."
+  tags: [데이터 엔지니어링]
+  related_terms: ["databricks-ai-functions"]
+  related_posts: [/posts/databricks-applications-3]
+  sources:
+  - title: "Databricks VARIANT 자료형"
+    url: https://docs.databricks.com/aws/en/sql/language-manual/data-types/variant-type
   draft: false
 
 - id: mlflow
