@@ -227,7 +227,7 @@
   description: "Databricks에서 데이터·AI 자산의 탐색, 접근 권한, 계보 등을 관리하는 거버넌스 계층이다. 테이블은 catalog.schema.table 이름으로 참조하며, 실제 저장 경로와 논리적 이름은 구분된다."
   tags: [데이터 엔지니어링]
   related_terms: ["databricks"]
-  related_posts: [/posts/databricks-basics-5, /posts/databricks-basics-1]
+  related_posts: [/posts/databricks-basics-5, /posts/databricks-basics-1, /posts/databricks-advanced-1]
   sources:
   - title: "Unity Catalog 공식 문서"
     url: https://docs.databricks.com/aws/en/data-governance/unity-catalog/
@@ -551,7 +551,7 @@
   description: Databricks Unity Catalog의 catalog.schema.table 이름 구조에서 첫 번째 단계에 해당하는 데이터 구성 단위다. 여러 스키마를 포함하며, 조직이나 환경별로 데이터를 논리적으로 구분하고 접근 권한을 관리하는 데 사용한다.
   tags: [데이터 엔지니어링]
   related_terms: [unity-catalog, unity-catalog-schema]
-  related_posts: [/posts/databricks-basics-2]
+  related_posts: [/posts/databricks-basics-2, /posts/databricks-advanced-1]
   sources:
   - title: Databricks 카탈로그
     url: https://docs.databricks.com/aws/en/catalogs/
@@ -565,7 +565,7 @@
   description: Databricks Unity Catalog에서 카탈로그 아래에 테이블·뷰 등의 자산을 묶는 이름 공간이다. catalog.schema.table 구조의 두 번째 단계이며, 테이블의 컬럼·자료형을 뜻하는 스키마와는 구분된다.
   tags: [데이터 엔지니어링]
   related_terms: [unity-catalog, unity-catalog-catalog]
-  related_posts: [/posts/databricks-basics-5, /posts/databricks-basics-2]
+  related_posts: [/posts/databricks-basics-5, /posts/databricks-basics-2, /posts/databricks-advanced-1]
   sources:
   - title: Databricks 스키마
     url: https://docs.databricks.com/aws/en/schemas/
@@ -763,3 +763,105 @@
   - title: Databricks 데이터 파일 배치 최적화
     url: https://docs.databricks.com/aws/en/tables/operations/optimize
   draft: false
+
+- id: databricks-principal
+  title: Databricks 권한 주체
+  english: Databricks Principal
+  abbreviations: []
+  term_aliases: [프린시펄]
+  description: Databricks에서 권한을 부여받는 사용자·그룹·서비스 프린시펄 등의 주체다. 권한을 판단할 때는 객체에 부여한 작업뿐 아니라 실제 실행 주체와 그룹 멤버십도 함께 확인한다.
+  tags: [데이터 엔지니어링]
+  related_terms: [unity-catalog, databricks-service-principal]
+  related_posts: [/posts/databricks-advanced-1]
+  sources:
+  - title: Databricks Principal
+    url: https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-principal
+  draft: false
+
+- id: databricks-service-principal
+  title: Databricks 서비스 프린시펄
+  english: Databricks Service Principal
+  abbreviations: []
+  term_aliases: [서비스 주체]
+  description: Databricks의 Job·스크립트·CI/CD 등 자동화가 사용하는 인증·권한 주체다. 개인 사용자와 분리해 권한과 실행 수명을 관리하는 데 사용한다.
+  tags: [데이터 엔지니어링]
+  related_terms: [databricks-principal, lakeflow-jobs]
+  related_posts: [/posts/databricks-advanced-1]
+  sources:
+  - title: Databricks 사용자·서비스 프린시펄·그룹
+    url: https://docs.databricks.com/aws/en/admin/users-groups
+  - title: Lakeflow Jobs 실행 주체와 권한
+    url: https://docs.databricks.com/aws/en/jobs/privileges
+  draft: false
+
+- id: unity-catalog-privilege-inheritance
+  title: Unity Catalog 권한 상속
+  english: Unity Catalog Privilege Inheritance
+  abbreviations: []
+  term_aliases: []
+  description: Unity Catalog에서 catalog·schema에 부여한 권한이 해당 권한을 지원하는 현재와 미래의 하위 객체에 적용되는 방식이다. 하위 객체의 직접 부여를 회수해도 상위에서 내려오는 같은 권한이 제거되지는 않는다.
+  tags: [데이터 엔지니어링]
+  related_terms: [unity-catalog-catalog, unity-catalog-schema, unity-catalog-object-ownership]
+  related_posts: [/posts/databricks-advanced-1]
+  sources:
+  - title: Unity Catalog 권한 상속
+    url: https://docs.databricks.com/aws/en/data-governance/unity-catalog/access-control/permissions-concepts#privilege-inheritance
+  draft: false
+
+- id: unity-catalog-object-ownership
+  title: Unity Catalog 객체 소유권
+  english: Unity Catalog Object Ownership
+  abbreviations: []
+  term_aliases: [객체 소유권]
+  description: Unity Catalog 객체에 대해 한 사용자·그룹·서비스 프린시펄이 가지는 소유자 지위다. 객체의 작업과 권한 관리를 허용하며, 소유권 자체는 하위 객체에 상속되지 않지만 부모 소유자는 하위 객체를 관리할 수 있다.
+  tags: [데이터 엔지니어링]
+  related_terms: [databricks-principal, unity-catalog-privilege-inheritance]
+  related_posts: [/posts/databricks-advanced-1]
+  sources:
+  - title: Unity Catalog 소유권
+    url: https://docs.databricks.com/aws/en/data-governance/unity-catalog/access-control/permissions-concepts#ownership
+  draft: false
+
+- id: least-privilege
+  title: 최소 권한 원칙
+  english: Principle of Least Privilege
+  abbreviations: []
+  term_aliases: [최소 권한]
+  description: 주체에게 업무에 필요한 대상과 작업의 권한만 허용하는 접근 제어 원칙이다. 불필요하게 넓은 범위의 권한을 피하고 역할이 바뀌면 부여 내역을 조정한다.
+  tags: [데이터 엔지니어링]
+  related_terms: [databricks-principal, unity-catalog-privilege-inheritance]
+  related_posts: [/posts/databricks-advanced-1]
+  sources:
+  - title: Unity Catalog 권한 부여 모범 사례
+    url: https://docs.databricks.com/aws/en/data-governance/unity-catalog/best-practices
+  draft: false
+
+- id: databricks-entitlement
+  title: Databricks 기능 사용 권한
+  english: Databricks Entitlement
+  abbreviations: []
+  term_aliases: [인타이틀먼트]
+  description: Databricks workspace에서 사용자·서비스 프린시펄·그룹이 사용할 수 있는 기능을 정하는 속성이다. Workspace access나 Databricks SQL access 등이 있으며, 테이블 데이터를 읽는 Unity Catalog의 SELECT 권한과는 별도로 관리한다.
+  tags: [데이터 엔지니어링]
+  related_terms: [databricks-principal]
+  related_posts: []
+  sources:
+  - title: Databricks 기능 사용 권한
+    url: https://docs.databricks.com/aws/en/security/auth/entitlements
+  draft: true
+
+- id: databricks-role-assumption
+  title: Databricks 역할 전환
+  english: Databricks Role Assumption
+  abbreviations: []
+  term_aliases: [역할 수임]
+  description: Databricks RBAC에서 그룹을 역할로 선택해 해당 역할의 권한으로 세션을 실행하는 기능이다. 본인의 권한을 합산하는 대신 역할의 권한으로 실행하며, 전환한 세션의 current_user()는 역할 이름을 반환한다. 역할을 선택하려면 해당 그룹의 Assume 권한이 필요하다.
+  tags: [데이터 엔지니어링]
+  related_terms: [databricks-principal, unity-catalog-object-ownership]
+  related_posts: []
+  sources:
+  - title: Databricks 역할 전환
+    url: https://docs.databricks.com/aws/en/security/auth/rbac/switch-roles
+  - title: 역할 전환 시 신원 함수 동작
+    url: https://docs.databricks.com/aws/en/security/auth/rbac/abac-interaction
+  draft: true
