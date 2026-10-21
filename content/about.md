@@ -1,6 +1,7 @@
 ---
 title: "소개"
 layout: "about"
+draft: true
 description: "데이터가 지속적으로 비즈니스 가치를 만들 수 있는 시스템을 고민하는 데이터 엔지니어 임선우(Sunwoo Lim)입니다."
 name_en: "Sunwoo Lim"
 headline: "분석에서 시작해,\n시스템으로 이어갑니다."

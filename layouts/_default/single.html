@@ -7,7 +7,7 @@
         {{ with .Description }}<p class="article-description">{{ . }}</p>{{ end }}
         {{ if eq .Section "posts" }}
           <div class="article-meta">
-            {{ with site.GetPage "/about" }}<a rel="author" href="{{ .RelPermalink }}">{{ site.Params.authorName }}</a><span aria-hidden="true">·</span>{{ end }}
+            {{ with partial "public-about.html" . }}<a rel="author" href="{{ .RelPermalink }}">{{ site.Params.authorName }}</a>{{ else }}<span>{{ site.Params.authorName }}</span>{{ end }}<span aria-hidden="true">·</span>
             <time datetime="{{ .PublishDate.Format "2006-01-02T15:04:05Z07:00" }}">{{ .PublishDate.Format "2006. 01. 02." }}</time>
             {{ if .Lastmod.After .PublishDate }}
               <span aria-hidden="true">·</span>

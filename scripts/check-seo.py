@@ -147,7 +147,8 @@ def check(directory):
                     require(data['description'] == description, f'{label}: JSON-LD 설명 불일치')
                     require(data['headline'] in ''.join(page.text), f'{label}: JSON-LD 제목이 본문에 없음')
                     require(data['author']['name'] in ''.join(page.text), f'{label}: 작성자 표시 누락')
-                    require(local_path(data['author']['url']) in pages, f'{label}: 작성자 페이지 없음')
+                    if 'url' in data['author']:
+                        require(local_path(data['author']['url']) in pages, f'{label}: 작성자 페이지 없음')
                     published = date(data['datePublished'], f'{label} datePublished')
                     modified = date(data['dateModified'], f'{label} dateModified')
                     if published and modified:

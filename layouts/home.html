@@ -1,4 +1,7 @@
 {{ define "main" }}
+  {{ if site.Params.homeDraft }}
+    {{ with site.GetPage "/posts" }}{{ partial "post-list-page.html" . }}{{ end }}
+  {{ else }}
   <div class="container">
     <section class="hero" aria-labelledby="hero-title">
       <img class="profile-mark" src="{{ "profile.jpeg" | relURL }}" alt="{{ site.Params.authorName }} 프로필 사진" width="136" height="136">
@@ -15,7 +18,9 @@
           <p class="eyebrow">What I build</p>
           <h2 id="focus-title">관심 영역</h2>
         </div>
-        <a class="text-link" href="{{ "about/" | relURL }}">경험 더 보기 →</a>
+        {{ with partial "public-about.html" . }}
+          <a class="text-link" href="{{ .RelPermalink }}">경험 더 보기 →</a>
+        {{ end }}
       </div>
       <div class="focus-grid">
         <article class="focus-card">
@@ -63,4 +68,5 @@
       {{ end }}
     </section>
   </div>
+  {{ end }}
 {{ end }}

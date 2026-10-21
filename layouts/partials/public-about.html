@@ -1,0 +1,7 @@
+{{- $about := false -}}
+{{- with site.GetPage "/about" -}}
+  {{- if and (not .Draft) (not (.PublishDate.After now)) -}}
+    {{- $about = . -}}
+  {{- end -}}
+{{- end -}}
+{{- return $about -}}

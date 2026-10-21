@@ -2,7 +2,7 @@
 {{- $seo := .seo -}}
 {{- if and $seo.isPost (not $seo.noindex) -}}
   {{- $author := dict "@type" "Person" "name" site.Params.authorName -}}
-  {{- with site.GetPage "/about" -}}{{- $author = merge $author (dict "url" .Permalink) -}}{{- end -}}
+  {{- with partial "public-about.html" . -}}{{- $author = merge $author (dict "url" .Permalink) -}}{{- end -}}
   {{- $article := dict
     "@context" "https://schema.org"
     "@type" "BlogPosting"
