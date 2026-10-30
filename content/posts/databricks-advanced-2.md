@@ -15,6 +15,8 @@ seriesOrder: 2
 
 **데이터 리니지(Data Lineage)는 데이터의 출처와 전달 경로를 연결한 기록이다.** 먼저 매출 합계가 어떤 원본 컬럼에서 계산됐는지 추적한다. 이어서 같은 Silver를 사용하는 매출 집계와 거래 건수 집계를 비교해, **금액 컬럼을 바꾸면 어떤 결과와 SQL을 검토해야 하는지** 찾는다.
 
+[![데이터 리니지의 개념 사진](/images/databricks-advanced-2/what-is-data-lineage.jpeg)](/images/databricks-advanced-2/what-is-data-lineage.jpeg)
+
 [심화 1편](/posts/databricks-advanced-1/)에서는 데이터 접근 권한을 다뤘다. 이번에는 같은 데이터가 어떤 결과에 사용되는지 살펴본다.
 
 실습은 Serverless Notebook에서 진행했다. 화면과 공식 문서 확인은 2026년 10월 21일 기준이다. 그래프 이미지를 누르면 원본 크기로 볼 수 있다.
