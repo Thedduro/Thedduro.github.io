@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="350" viewBox="0 0 640 350" role="img" aria-labelledby="title desc">
+<title id="title">AWS SAA 영역별 출제 비중</title>
+<desc id="desc">보안 30%, 복원력 26%, 고성능 24%, 비용 최적화 20%. SAA-C03 공식 시험 가이드 기준.</desc>
+<rect x="1" y="1" width="638" height="348" rx="18" fill="#141920" stroke="#414954"/>
+<g font-family="Apple SD Gothic Neo, Noto Sans KR, sans-serif" fill="#f1f5f9">
+<text x="28" y="42" font-size="24" font-weight="700">영역별 출제 비중</text>
+<rect x="28" y="66" width="175.2" height="20" fill="#4397e6"/>
+<rect x="203.2" y="66" width="151.84" height="20" fill="#2eb9ad"/>
+<rect x="355.03999999999996" y="66" width="140.16" height="20" fill="#efb34a"/>
+<rect x="495.19999999999993" y="66" width="116.8" height="20" fill="#a387e5"/>
+<circle cx="36" cy="123" r="6" fill="#4397e6"/>
+<text x="54" y="130" font-size="23">보안 아키텍처 설계</text>
+<text x="612" y="130" text-anchor="end" font-size="25" font-weight="700">30%</text>
+<circle cx="36" cy="181" r="6" fill="#2eb9ad"/>
+<text x="54" y="188" font-size="23">복원력 있는 아키텍처 설계</text>
+<text x="612" y="188" text-anchor="end" font-size="25" font-weight="700">26%</text>
+<circle cx="36" cy="239" r="6" fill="#efb34a"/>
+<text x="54" y="246" font-size="23">고성능 아키텍처 설계</text>
+<text x="612" y="246" text-anchor="end" font-size="25" font-weight="700">24%</text>
+<circle cx="36" cy="297" r="6" fill="#a387e5"/>
+<text x="54" y="304" font-size="23">비용 최적화 아키텍처 설계</text>
+<text x="612" y="304" text-anchor="end" font-size="25" font-weight="700">20%</text>
+</g></svg>

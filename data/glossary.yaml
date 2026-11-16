@@ -7,7 +7,7 @@
   description: AWS가 감독 시험을 통해 클라우드·AI 관련 지식과 역할별 역량을 평가하고 부여하는 자격이다. 기술 분야와 비즈니스 역할에 따라 평가 범위가 다르며, 강의 수료증과는 구분된다.
   tags: [클라우드]
   related_terms: []
-  related_posts: [/posts/aws-certification-guide]
+  related_posts: [/posts/aws-certification-guide, /posts/aws-saa-1]
   sources:
   - title: AWS Certification FAQ
     url: https://aws.amazon.com/certification/faqs/
@@ -938,3 +938,17 @@
   - title: Unity Catalog 리니지의 출력 관계와 영향 분석
     url: https://docs.databricks.com/aws/en/data-governance/unity-catalog/data-lineage
   draft: false
+
+- id: aws-solutions-architect-associate
+  title: AWS Certified Solutions Architect – Associate
+  english: ""
+  abbreviations: [SAA]
+  term_aliases: [AWS SAA]
+  description: AWS 서비스를 조합해 요구사항에 맞는 클라우드 아키텍처를 설계하는 역량을 평가하는 Associate 등급 자격증이다. 보안, 복원력, 성능, 비용을 고려한 설계와 기존 구성의 개선을 다룬다.
+  tags: [클라우드]
+  related_terms: [aws-certification]
+  related_posts: [/posts/aws-saa-1]
+  sources:
+  - title: AWS SAA 공식 시험 가이드
+    url: https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.html
+  draft: true
