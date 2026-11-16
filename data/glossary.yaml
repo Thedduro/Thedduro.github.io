@@ -227,7 +227,7 @@
   description: "Databricks에서 데이터·AI 자산의 탐색, 접근 권한, 계보 등을 관리하는 거버넌스 계층이다. 테이블은 catalog.schema.table 이름으로 참조하며, 실제 저장 경로와 논리적 이름은 구분된다."
   tags: [데이터 엔지니어링]
   related_terms: ["databricks"]
-  related_posts: [/posts/databricks-basics-5, /posts/databricks-basics-1, /posts/databricks-advanced-1, /posts/databricks-advanced-2]
+  related_posts: [/posts/databricks-basics-5, /posts/databricks-basics-1, /posts/databricks-advanced-1, /posts/databricks-advanced-2, /posts/databricks-advanced-3]
   sources:
   - title: "Unity Catalog 공식 문서"
     url: https://docs.databricks.com/aws/en/data-governance/unity-catalog/
@@ -938,6 +938,62 @@
   - title: Unity Catalog 리니지의 출력 관계와 영향 분석
     url: https://docs.databricks.com/aws/en/data-governance/unity-catalog/data-lineage
   draft: false
+
+- id: sql-user-defined-function
+  title: SQL 사용자 정의 함수
+  english: SQL User-defined Function
+  abbreviations: [SQL UDF]
+  term_aliases: []
+  description: 사용자가 SQL로 정의해 이름을 붙이고 호출하는 함수다. 입력값을 받아 계산 결과를 반환하며, 반환 형태에 따라 스칼라 함수나 테이블 함수로 구분한다. Unity Catalog의 행 필터와 컬럼 마스크에는 스칼라 SQL 함수를 연결한다.
+  tags: [데이터 엔지니어링]
+  related_terms: [unity-catalog-row-filter, unity-catalog-column-mask]
+  related_posts: [/posts/databricks-advanced-3]
+  sources:
+  - title: Databricks CREATE FUNCTION
+    url: https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-syntax-ddl-create-sql-function
+  draft: true
+
+- id: unity-catalog-row-filter
+  title: Unity Catalog 행 필터
+  english: Unity Catalog Row Filter
+  abbreviations: []
+  term_aliases: [행 필터]
+  description: Unity Catalog에서 테이블을 조회할 때 SQL 함수가 true를 반환하는 행만 보여주는 접근 제어 기능이다. 함수가 false나 NULL을 반환하는 행은 조회에서 제외하며, 원본 행을 삭제하는 것은 아니다.
+  tags: [데이터 엔지니어링]
+  related_terms: [unity-catalog, unity-catalog-column-mask, sql-user-defined-function]
+  related_posts: [/posts/databricks-advanced-3]
+  sources:
+  - title: Databricks ROW FILTER
+    url: https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-syntax-ddl-row-filter
+  draft: true
+
+- id: unity-catalog-column-mask
+  title: Unity Catalog 컬럼 마스크
+  english: Unity Catalog Column Mask
+  abbreviations: []
+  term_aliases: [컬럼 마스크, 컬럼 마스킹, 열 마스킹]
+  description: Unity Catalog에서 컬럼을 읽을 때 원래 값 대신 SQL 함수의 반환값을 제공하는 접근 제어 기능이다. 원본 값을 덮어쓰지 않으며, 마스크된 값이 이후 조건·집계·조인에 사용되므로 분석 결과도 달라질 수 있다.
+  tags: [데이터 엔지니어링]
+  related_terms: [unity-catalog, unity-catalog-row-filter, sql-user-defined-function]
+  related_posts: [/posts/databricks-advanced-3]
+  sources:
+  - title: Databricks MASK
+    url: https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-syntax-ddl-column-mask
+  draft: true
+
+- id: unity-catalog-abac
+  title: Unity Catalog 속성 기반 접근 제어
+  english: Unity Catalog Attribute-based Access Control
+  abbreviations: [ABAC]
+  term_aliases: [Unity Catalog ABAC]
+  description: Unity Catalog에서 관리되는 태그 등의 속성을 정책 조건으로 사용해 데이터 접근을 제어하는 방식이다. 태그 조건에 맞는 여러 테이블·컬럼에 행 필터와 마스킹 등의 공통 규칙을 적용하는 데 사용한다.
+  tags: [데이터 엔지니어링]
+  related_terms: [unity-catalog, unity-catalog-row-filter, unity-catalog-column-mask]
+  related_posts: [/posts/databricks-advanced-3]
+  sources:
+  - title: Unity Catalog ABAC
+    url: https://docs.databricks.com/aws/en/data-governance/unity-catalog/abac
+  draft: true
 
 - id: aws-solutions-architect-associate
   title: AWS Certified Solutions Architect – Associate

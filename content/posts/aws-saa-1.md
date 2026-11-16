@@ -1,7 +1,7 @@
 ---
 title: "AWS-SAA 공부 1편: 어떤 자격증일까? 난이도와 공부 방향"
 date: 2026-11-16T14:18:46+09:00
-draft: true
+draft: false
 description: "AWS SAA(SAA-C03)가 평가하는 설계 역량과 시험 구성, 체감 난이도가 달라지는 이유를 살펴본다. AWS 기초부터 서비스 비교, 실습과 오답 정리까지 공부 시리즈의 학습 방향을 정리한다."
 slug: "aws-saa-1"
 categories: ["Cloud"]
