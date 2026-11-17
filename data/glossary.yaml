@@ -828,9 +828,9 @@
   abbreviations: []
   term_aliases: [최소 권한]
   description: 주체에게 업무에 필요한 대상과 작업의 권한만 허용하는 접근 제어 원칙이다. 불필요하게 넓은 범위의 권한을 피하고 역할이 바뀌면 부여 내역을 조정한다.
-  tags: [데이터 엔지니어링]
+  tags: [데이터 엔지니어링, 클라우드]
   related_terms: [databricks-principal, unity-catalog-privilege-inheritance]
-  related_posts: [/posts/databricks-advanced-1]
+  related_posts: [/posts/databricks-advanced-1, /posts/aws-saa-2]
   sources:
   - title: Unity Catalog 권한 부여 모범 사례
     url: https://docs.databricks.com/aws/en/data-governance/unity-catalog/best-practices
@@ -1008,3 +1008,507 @@
   - title: AWS SAA 공식 시험 가이드
     url: https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.html
   draft: true
+
+- id: aws-shared-responsibility
+  title: "공동 책임 모델"
+  english: "Shared Responsibility Model"
+  abbreviations: []
+  term_aliases: []
+  description: "AWS와 고객이 클라우드 보안 책임을 나누는 모델이다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "공동 책임 모델 공식 문서"
+    url: https://aws.amazon.com/compliance/shared-responsibility-model/
+  draft: false
+
+- id: multi-factor-authentication
+  title: "MFA"
+  english: "Multi-factor Authentication"
+  abbreviations: []
+  term_aliases: []
+  description: "서로 다른 인증 요소를 조합해 신원을 확인하는 다중 요소 인증이다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "MFA 공식 문서"
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html
+  draft: false
+
+- id: aws-iam
+  title: "AWS IAM"
+  english: "Identity and Access Management"
+  abbreviations: []
+  term_aliases: []
+  description: "AWS 리소스에 누가 접근하고 무엇을 할 수 있는지 관리하는 서비스이다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "AWS IAM 공식 문서"
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html
+  draft: false
+
+- id: aws-iam-role
+  title: "IAM Role"
+  english: "Identity and Access Management Role"
+  abbreviations: []
+  term_aliases: []
+  description: "허용된 주체가 맡아 사용할 수 있도록 권한을 정의한 IAM 역할이다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "IAM Role 공식 문서"
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html
+  draft: false
+
+- id: aws-iam-policy
+  title: "IAM Policy"
+  english: "Identity and Access Management Policy"
+  abbreviations: []
+  term_aliases: []
+  description: "AWS 요청의 허용·거부 조건을 정의하는 정책이다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "IAM Policy 공식 문서"
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html
+  draft: false
+
+- id: aws-organizations
+  title: "AWS Organizations"
+  english: ""
+  abbreviations: []
+  term_aliases: []
+  description: "여러 AWS 계정을 묶어 중앙에서 관리하는 서비스이다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "AWS Organizations 공식 문서"
+    url: https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html
+  draft: false
+
+- id: aws-scp
+  title: "SCP"
+  english: "Service Control Policy"
+  abbreviations: []
+  term_aliases: []
+  description: "조직 내 적용 대상 계정의 IAM 주체가 사용할 수 있는 권한의 상한을 제한하는 정책이다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "SCP 공식 문서"
+    url: https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html
+  draft: false
+
+- id: aws-iam-identity-center
+  title: "AWS IAM Identity Center"
+  english: "Identity and Access Management Identity Center"
+  abbreviations: []
+  term_aliases: []
+  description: "직원의 AWS 계정과 애플리케이션 접근을 중앙에서 관리하는 서비스이다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "AWS IAM Identity Center 공식 문서"
+    url: https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html
+  draft: false
+
+- id: aws-security-group
+  title: "보안 그룹"
+  english: "Security Group"
+  abbreviations: [SG]
+  term_aliases: []
+  description: "연결된 리소스의 인바운드·아웃바운드 트래픽을 제어하는 가상 방화벽."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "보안 그룹 공식 문서"
+    url: https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html
+  draft: false
+
+- id: aws-network-acl
+  title: "네트워크 ACL"
+  english: "Network Access Control List"
+  abbreviations: [NACL]
+  term_aliases: [Network ACL]
+  description: "서브넷 경계를 드나드는 트래픽을 허용하거나 거부하는 제어 목록이다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "네트워크 ACL 공식 문서"
+    url: https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html
+  draft: false
+
+- id: aws-waf
+  title: "AWS WAF"
+  english: "Web Application Firewall"
+  abbreviations: []
+  term_aliases: []
+  description: "웹 애플리케이션으로 전달되는 HTTP·HTTPS 요청을 검사하는 방화벽."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "AWS WAF 공식 문서"
+    url: https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html
+  draft: false
+
+- id: aws-kms
+  title: "AWS KMS"
+  english: "Key Management Service"
+  abbreviations: []
+  term_aliases: []
+  description: "데이터 암호화와 서명에 사용하는 키를 생성·관리하는 서비스이다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "AWS KMS 공식 문서"
+    url: https://docs.aws.amazon.com/kms/latest/developerguide/overview.html
+  draft: false
+
+- id: aws-secrets-manager
+  title: "AWS Secrets Manager"
+  english: ""
+  abbreviations: []
+  term_aliases: []
+  description: "DB 접속 정보·API 키 같은 비밀 정보를 저장·조회·교체하는 서비스이다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "AWS Secrets Manager 공식 문서"
+    url: https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html
+  draft: false
+
+- id: aws-parameter-store
+  title: "Parameter Store"
+  english: "AWS Systems Manager Parameter Store"
+  abbreviations: []
+  term_aliases: []
+  description: "애플리케이션 설정값을 이름별로 저장·조회하는 Systems Manager 기능이다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "Parameter Store 공식 문서"
+    url: https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html
+  draft: false
+
+- id: aws-sts
+  title: "AWS STS"
+  english: "Security Token Service"
+  abbreviations: []
+  term_aliases: []
+  description: "유효기간이 있는 임시 보안 자격 증명을 발급하는 서비스이다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "AWS STS 공식 문서"
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html
+  draft: false
+
+- id: aws-trust-policy
+  title: "신뢰 정책"
+  english: "Trust Policy"
+  abbreviations: []
+  term_aliases: []
+  description: "누가 IAM 역할을 맡을 수 있는지 정의하는 정책이다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "신뢰 정책 공식 문서"
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html
+  draft: false
+
+- id: aws-resource-policy
+  title: "리소스 기반 정책"
+  english: "Resource-based Policy"
+  abbreviations: []
+  term_aliases: []
+  description: "버킷 등 리소스 자체에 연결하는 접근 정책이다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "리소스 기반 정책 공식 문서"
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html
+  draft: false
+
+- id: aws-permissions-boundary
+  title: "권한 경계"
+  english: "Permissions Boundary"
+  abbreviations: []
+  term_aliases: []
+  description: "자격 증명 기반 정책이 IAM 사용자·역할에 부여할 수 있는 최대 권한을 제한하는 장치이다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "권한 경계 공식 문서"
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html
+  draft: false
+
+- id: aws-identity-federation
+  title: "자격 증명 연동"
+  english: "Identity Federation"
+  abbreviations: []
+  term_aliases: []
+  description: "기존 외부 인증 체계의 사용자·워크로드가 AWS에 접근하도록 연결하는 방식이다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "자격 증명 연동 공식 문서"
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers.html
+  draft: false
+
+- id: amazon-cognito
+  title: "Amazon Cognito"
+  english: ""
+  abbreviations: []
+  term_aliases: []
+  description: "웹·모바일 애플리케이션 사용자의 인증과 접근을 지원하는 서비스이다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "Amazon Cognito 공식 문서"
+    url: https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html
+  draft: false
+
+- id: aws-control-tower
+  title: "AWS Control Tower"
+  english: ""
+  abbreviations: []
+  term_aliases: []
+  description: "여러 AWS 계정의 표준 환경을 구성하고 거버넌스를 적용하는 서비스이다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "AWS Control Tower 공식 문서"
+    url: https://docs.aws.amazon.com/controltower/latest/userguide/what-is-control-tower.html
+  draft: false
+
+- id: amazon-vpc
+  title: "Amazon VPC"
+  english: "Virtual Private Cloud"
+  abbreviations: []
+  term_aliases: []
+  description: "AWS 안에서 정의하는 논리적으로 격리된 가상 네트워크."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "Amazon VPC 공식 문서"
+    url: https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html
+  draft: false
+
+- id: aws-vpc-endpoint
+  title: "VPC Endpoint"
+  english: "Virtual Private Cloud Endpoint"
+  abbreviations: []
+  term_aliases: []
+  description: "인터넷 게이트웨이나 NAT 없이 지원 서비스 등에 비공개로 연결하는 접점이다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "VPC Endpoint 공식 문서"
+    url: https://docs.aws.amazon.com/vpc/latest/privatelink/gateway-endpoints.html
+  draft: false
+
+- id: aws-privatelink
+  title: "AWS PrivateLink"
+  english: ""
+  abbreviations: []
+  term_aliases: []
+  description: "프라이빗 주소를 통해 다른 VPC의 서비스·리소스 등에 연결하는 기술이다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "AWS PrivateLink 공식 문서"
+    url: https://docs.aws.amazon.com/vpc/latest/privatelink/concepts.html
+  draft: false
+
+- id: aws-site-to-site-vpn
+  title: "AWS Site-to-Site VPN"
+  english: "Virtual Private Network"
+  abbreviations: []
+  term_aliases: []
+  description: "AWS와 온프레미스 네트워크 사이에 암호화 터널을 구성하는 서비스이다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "AWS Site-to-Site VPN 공식 문서"
+    url: https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html
+  draft: false
+
+- id: aws-direct-connect
+  title: "AWS Direct Connect"
+  english: ""
+  abbreviations: []
+  term_aliases: []
+  description: "온프레미스와 AWS 사이에 전용 네트워크 연결을 제공하는 서비스이다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "AWS Direct Connect 공식 문서"
+    url: https://docs.aws.amazon.com/directconnect/latest/UserGuide/encryption-in-transit.html
+  draft: false
+
+- id: aws-shield
+  title: "AWS Shield"
+  english: ""
+  abbreviations: []
+  term_aliases: []
+  description: "DDoS(Distributed Denial of Service, 분산 서비스 거부) 공격 대응을 위한 보호 서비스이다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "AWS Shield 공식 문서"
+    url: https://docs.aws.amazon.com/waf/latest/developerguide/shield-chapter.html
+  draft: false
+
+- id: amazon-guardduty
+  title: "Amazon GuardDuty"
+  english: ""
+  abbreviations: []
+  term_aliases: []
+  description: "AWS 로그와 데이터 소스를 분석해 의심스러운 활동을 탐지하는 서비스이다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "Amazon GuardDuty 공식 문서"
+    url: https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html
+  draft: false
+
+- id: amazon-macie
+  title: "Amazon Macie"
+  english: ""
+  abbreviations: []
+  term_aliases: []
+  description: "Amazon S3의 민감 데이터를 발견하고 데이터 보안 위험을 파악하는 서비스이다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "Amazon Macie 공식 문서"
+    url: https://docs.aws.amazon.com/macie/latest/user/what-is-macie.html
+  draft: false
+
+- id: tls
+  title: "TLS"
+  english: "Transport Layer Security"
+  abbreviations: []
+  term_aliases: []
+  description: "네트워크로 전달되는 데이터의 기밀성·무결성 등을 보호하는 프로토콜이다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "TLS 공식 문서"
+    url: https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingEncryption.html
+  draft: false
+
+- id: aws-acm
+  title: "AWS ACM"
+  english: "AWS Certificate Manager"
+  abbreviations: []
+  term_aliases: []
+  description: "웹사이트·애플리케이션의 인증서를 발급·관리하는 서비스이다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "AWS ACM 공식 문서"
+    url: https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html
+  draft: false
+
+- id: s3-versioning
+  title: "S3 Versioning"
+  english: "Simple Storage Service Versioning"
+  abbreviations: []
+  term_aliases: []
+  description: "같은 객체의 여러 버전을 유지하는 기능이다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "S3 Versioning 공식 문서"
+    url: https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html
+  draft: false
+
+- id: s3-object-lock
+  title: "S3 Object Lock"
+  english: "Simple Storage Service Object Lock"
+  abbreviations: []
+  term_aliases: []
+  description: "객체 버전이 삭제·덮어쓰기되지 않도록 보존하는 기능이다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "S3 Object Lock 공식 문서"
+    url: https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html
+  draft: false
+
+- id: aws-backup
+  title: "AWS Backup"
+  english: ""
+  abbreviations: []
+  term_aliases: []
+  description: "지원 리소스의 백업 정책과 작업을 중앙에서 관리하는 서비스이다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "AWS Backup 공식 문서"
+    url: https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html
+  draft: false
+
+- id: aws-cloudtrail
+  title: "AWS CloudTrail"
+  english: ""
+  abbreviations: []
+  term_aliases: []
+  description: "사용자·역할·AWS 서비스의 작업을 이벤트로 기록하는 서비스이다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "AWS CloudTrail 공식 문서"
+    url: https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html
+  draft: false
+
+- id: aws-config
+  title: "AWS Config"
+  english: ""
+  abbreviations: []
+  term_aliases: []
+  description: "AWS 리소스의 구성과 변경 이력을 기록·평가하는 서비스이다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-2]
+  sources:
+  - title: "AWS Config 공식 문서"
+    url: https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html
+  draft: false
