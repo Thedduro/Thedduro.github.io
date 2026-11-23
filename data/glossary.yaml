@@ -46,6 +46,7 @@
   - data-warehouse
   - data-lakehouse
   related_posts:
+  - /posts/aws-saa-4
   - /posts/data-platform-basics-1
   sources:
   - title: AWS 데이터 레이크
@@ -481,7 +482,7 @@
   description: "데이터를 컬럼 단위로 저장하는 오픈 소스 파일 형식이다. 분석용 데이터의 압축과 조회에 활용되며, Delta Lake의 데이터 파일에도 사용된다. 테이블의 트랜잭션을 관리하는 Delta Lake와 역할이 다르다."
   tags: ["데이터 엔지니어링", "스토리지"]
   related_terms: ["delta-lake", "data-lakehouse"]
-  related_posts: [/posts/databricks-basics-1]
+  related_posts: [/posts/databricks-basics-1, /posts/aws-saa-4]
   sources:
   - title: "Apache Parquet 공식 문서"
     url: https://parquet.apache.org/docs/overview/
@@ -1311,7 +1312,7 @@
   description: "AWS 안에서 정의하는 논리적으로 격리된 가상 네트워크."
   tags: [클라우드]
   related_terms: []
-  related_posts: [/posts/aws-saa-2]
+  related_posts: [/posts/aws-saa-2, /posts/aws-saa-4]
   sources:
   - title: "Amazon VPC 공식 문서"
     url: https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html
@@ -1339,7 +1340,7 @@
   description: "프라이빗 주소를 통해 다른 VPC의 서비스·리소스 등에 연결하는 기술이다."
   tags: [클라우드]
   related_terms: []
-  related_posts: [/posts/aws-saa-2]
+  related_posts: [/posts/aws-saa-2, /posts/aws-saa-4]
   sources:
   - title: "AWS PrivateLink 공식 문서"
     url: https://docs.aws.amazon.com/vpc/latest/privatelink/concepts.html
@@ -1353,7 +1354,7 @@
   description: "AWS와 온프레미스 네트워크 사이에 암호화 터널을 구성하는 서비스이다."
   tags: [클라우드]
   related_terms: []
-  related_posts: [/posts/aws-saa-2]
+  related_posts: [/posts/aws-saa-2, /posts/aws-saa-4]
   sources:
   - title: "AWS Site-to-Site VPN 공식 문서"
     url: https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html
@@ -1367,7 +1368,7 @@
   description: "온프레미스와 AWS 사이에 전용 네트워크 연결을 제공하는 서비스이다."
   tags: [클라우드]
   related_terms: []
-  related_posts: [/posts/aws-saa-2]
+  related_posts: [/posts/aws-saa-2, /posts/aws-saa-4]
   sources:
   - title: "AWS Direct Connect 공식 문서"
     url: https://docs.aws.amazon.com/directconnect/latest/UserGuide/encryption-in-transit.html
@@ -1591,7 +1592,7 @@
   description: "인스턴스나 작업의 개수를 늘려 처리 용량을 확장하는 방식이다."
   tags: [클라우드]
   related_terms: []
-  related_posts: [/posts/aws-saa-3]
+  related_posts: [/posts/aws-saa-3, /posts/aws-saa-4]
   sources:
   - title: "수평 확장 공식 문서"
     url: https://docs.aws.amazon.com/wellarchitected/latest/framework/rel-dp.html
@@ -1619,7 +1620,7 @@
   description: "HTTP·HTTPS 요청을 애플리케이션 계층에서 분산하는 로드 밸런서."
   tags: [클라우드]
   related_terms: []
-  related_posts: [/posts/aws-saa-3]
+  related_posts: [/posts/aws-saa-3, /posts/aws-saa-4]
   sources:
   - title: "ALB 공식 문서"
     url: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html
@@ -1633,7 +1634,7 @@
   description: "TCP·UDP 등 전송 계층 트래픽을 분산하는 로드 밸런서."
   tags: [클라우드]
   related_terms: []
-  related_posts: [/posts/aws-saa-3]
+  related_posts: [/posts/aws-saa-3, /posts/aws-saa-4]
   sources:
   - title: "NLB 공식 문서"
     url: https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html
@@ -1647,7 +1648,7 @@
   description: "EC2 인스턴스 그룹의 용량을 유지·조절하는 서비스이다."
   tags: [클라우드]
   related_terms: []
-  related_posts: [/posts/aws-saa-3]
+  related_posts: [/posts/aws-saa-3, /posts/aws-saa-4]
   sources:
   - title: "Amazon EC2 Auto Scaling 공식 문서"
     url: https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html
@@ -1675,7 +1676,7 @@
   description: "생산자가 보낸 메시지를 소비자가 나중에 가져가 처리하도록 보관하는 큐 서비스이다."
   tags: [클라우드]
   related_terms: []
-  related_posts: [/posts/aws-saa-3]
+  related_posts: [/posts/aws-saa-3, /posts/aws-saa-4]
   sources:
   - title: "Amazon SQS 공식 문서"
     url: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html
@@ -1745,7 +1746,7 @@
   description: "발행자가 토픽에 보낸 메시지를 구독자에게 전달하는 서비스이다."
   tags: [클라우드]
   related_terms: []
-  related_posts: [/posts/aws-saa-3]
+  related_posts: [/posts/aws-saa-3, /posts/aws-saa-4]
   sources:
   - title: "Amazon SNS 공식 문서"
     url: https://docs.aws.amazon.com/sns/latest/dg/welcome.html
@@ -1787,7 +1788,7 @@
   description: "서버를 직접 관리하지 않고 코드를 실행하는 컴퓨팅 서비스이다."
   tags: [클라우드]
   related_terms: []
-  related_posts: [/posts/aws-saa-3]
+  related_posts: [/posts/aws-saa-3, /posts/aws-saa-4]
   sources:
   - title: "AWS Lambda 공식 문서"
     url: https://docs.aws.amazon.com/lambda/latest/dg/welcome.html
@@ -1801,7 +1802,7 @@
   description: "컨테이너 작업의 배치·실행·관리를 지원하는 오케스트레이션 서비스이다."
   tags: [클라우드]
   related_terms: []
-  related_posts: [/posts/aws-saa-3]
+  related_posts: [/posts/aws-saa-3, /posts/aws-saa-4]
   sources:
   - title: "Amazon ECS 공식 문서"
     url: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html
@@ -1815,7 +1816,7 @@
   description: "Kubernetes 애플리케이션을 실행하도록 관리형 제어 영역 등을 제공하는 서비스이다."
   tags: [클라우드]
   related_terms: []
-  related_posts: [/posts/aws-saa-3]
+  related_posts: [/posts/aws-saa-3, /posts/aws-saa-4]
   sources:
   - title: "Amazon EKS 공식 문서"
     url: https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html
@@ -1829,7 +1830,7 @@
   description: "컨테이너를 실행할 서버를 직접 준비·관리하지 않도록 하는 컴퓨팅 기술."
   tags: [클라우드]
   related_terms: []
-  related_posts: [/posts/aws-saa-3]
+  related_posts: [/posts/aws-saa-3, /posts/aws-saa-4]
   sources:
   - title: "AWS Fargate 공식 문서"
     url: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html
@@ -1843,7 +1844,7 @@
   description: "객체 단위로 데이터를 저장하는 서비스이다."
   tags: [클라우드]
   related_terms: []
-  related_posts: [/posts/aws-saa-3]
+  related_posts: [/posts/aws-saa-3, /posts/aws-saa-4]
   sources:
   - title: "Amazon S3 공식 문서"
     url: https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html
@@ -1857,7 +1858,7 @@
   description: "EC2 인스턴스에 연결해 사용하는 블록 스토리지."
   tags: [클라우드]
   related_terms: []
-  related_posts: [/posts/aws-saa-3]
+  related_posts: [/posts/aws-saa-3, /posts/aws-saa-4]
   sources:
   - title: "Amazon EBS 공식 문서"
     url: https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes.html
@@ -1871,7 +1872,7 @@
   description: "여러 컴퓨팅 자원에서 공유해 사용할 수 있는 관리형 파일 스토리지."
   tags: [클라우드]
   related_terms: []
-  related_posts: [/posts/aws-saa-3]
+  related_posts: [/posts/aws-saa-3, /posts/aws-saa-4]
   sources:
   - title: "Amazon EFS 공식 문서"
     url: https://docs.aws.amazon.com/efs/latest/ug/features.html
@@ -1913,7 +1914,7 @@
   description: "주 DB의 데이터를 복제해 읽기 부하를 나누는 복제본이다."
   tags: [클라우드]
   related_terms: []
-  related_posts: [/posts/aws-saa-3]
+  related_posts: [/posts/aws-saa-3, /posts/aws-saa-4]
   sources:
   - title: "RDS Read Replica 공식 문서"
     url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html
@@ -1927,7 +1928,7 @@
   description: "애플리케이션과 지원 RDS·Aurora DB 사이에서 연결을 관리하는 프록시이다."
   tags: [클라우드]
   related_terms: []
-  related_posts: [/posts/aws-saa-3]
+  related_posts: [/posts/aws-saa-3, /posts/aws-saa-4]
   sources:
   - title: "Amazon RDS Proxy 공식 문서"
     url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html
@@ -2029,4 +2030,452 @@
   sources:
   - title: "불변 인프라 공식 문서"
     url: https://docs.aws.amazon.com/wellarchitected/latest/framework/rel_tracking_change_management_immutable_infrastructure.html
+  draft: false
+
+- id: iops
+  title: "IOPS"
+  english: "Input/Output Operations Per Second"
+  abbreviations: []
+  term_aliases: []
+  description: "스토리지가 초당 처리하는 입출력 작업 수. 작은 데이터의 랜덤 접근은 IOPS, 큰 데이터의 순차 접근은 처리량을 함께 본다. 같은 IOPS라도 I/O 크기에 따라 필요한 처리량이 달라진다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-4]
+  sources:
+  - title: "IOPS 공식 문서"
+    url: https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html
+  draft: false
+
+- id: amazon-ec2
+  title: "Amazon EC2"
+  english: "Elastic Compute Cloud"
+  abbreviations: []
+  term_aliases: []
+  description: "필요한 사양의 가상 서버를 실행하는 서비스. 범용·컴퓨팅 최적화·메모리 최적화·스토리지 최적화·가속 컴퓨팅 등에서 병목에 맞는 계열을 고른다. vCPU 수만으로 성능을 판단하지 않는다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-4]
+  sources:
+  - title: "Amazon EC2 공식 문서"
+    url: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html
+  draft: false
+
+- id: lambda-provisioned-concurrency
+  title: "Lambda Provisioned Concurrency"
+  english: "프로비저닝된 동시성"
+  abbreviations: []
+  term_aliases: []
+  description: "Lambda 실행 환경을 미리 초기화해 준비하는 기능. 초기화로 인한 지연을 줄인다. Reserved Concurrency는 동시성을 예약·제한하며 실행 환경을 미리 데우는 기능이 아니다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-4]
+  sources:
+  - title: "Lambda Provisioned Concurrency 공식 문서"
+    url: https://docs.aws.amazon.com/lambda/latest/dg/provisioned-concurrency.html
+  draft: false
+
+- id: aws-batch
+  title: "AWS Batch"
+  english: ""
+  abbreviations: []
+  term_aliases: []
+  description: "배치 작업을 큐에 넣고 필요한 컴퓨팅 자원에 배치하는 서비스. 대량 계산·파일 변환처럼 즉각적인 사용자 응답이 필요하지 않은 작업에 사용한다. 작업 큐·우선순위·컴퓨팅 환경을 함께 구성한다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-4]
+  sources:
+  - title: "AWS Batch 공식 문서"
+    url: https://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html
+  draft: false
+
+- id: ebs-gp3
+  title: "EBS gp3"
+  english: "General Purpose SSD · Solid State Drive"
+  abbreviations: []
+  term_aliases: []
+  description: "범용 SSD 기반 EBS 볼륨 유형. 용량과 별도로 IOPS·처리량을 조정할 수 있다. 일반적인 애플리케이션과 데이터베이스에서 먼저 검토한다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-4]
+  sources:
+  - title: "EBS gp3 공식 문서"
+    url: https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html
+  draft: false
+
+- id: ebs-io2
+  title: "EBS io2"
+  english: "Provisioned IOPS SSD"
+  abbreviations: []
+  term_aliases: []
+  description: "높고 일관된 입출력 성능이 필요한 EBS 볼륨 유형. 입출력이 많은 핵심 데이터베이스에 적합하다. 요구 IOPS·지연 시간·내구성과 인스턴스 지원 조건을 함께 본다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-4]
+  sources:
+  - title: "EBS io2 공식 문서"
+    url: https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html
+  draft: false
+
+- id: fsx-lustre
+  title: "Amazon FSx for Lustre"
+  english: ""
+  abbreviations: []
+  term_aliases: []
+  description: "병렬 파일 시스템인 Lustre를 제공하는 관리형 서비스. HPC·머신러닝·대규모 데이터 처리에 사용한다. S3와 연계해 데이터 처리용 파일 시스템을 구성할 수 있다. HPC는 High Performance Computing."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-4]
+  sources:
+  - title: "Amazon FSx for Lustre 공식 문서"
+    url: https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html
+  draft: false
+
+- id: fsx-windows
+  title: "Amazon FSx for Windows File Server"
+  english: ""
+  abbreviations: []
+  term_aliases: []
+  description: "Windows 파일 서버를 제공하는 관리형 서비스. SMB(Server Message Block) 프로토콜과 Windows 기반 파일 공유가 필요할 때 사용한다. Active Directory 연동 요구도 함께 확인한다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-4]
+  sources:
+  - title: "Amazon FSx for Windows File Server 공식 문서"
+    url: https://docs.aws.amazon.com/fsx/latest/WindowsGuide/what-is.html
+  draft: false
+
+- id: s3-multipart-upload
+  title: "S3 Multipart Upload"
+  english: "멀티파트 업로드"
+  abbreviations: []
+  term_aliases: []
+  description: "하나의 객체를 여러 부분으로 나눠 업로드한 뒤 결합하는 기능. 부분을 병렬 전송하고 실패한 부분만 재전송할 수 있다. 완료하지 않은 업로드의 정리도 필요하다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-4]
+  sources:
+  - title: "S3 Multipart Upload 공식 문서"
+    url: https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html
+  draft: false
+
+- id: s3-transfer-acceleration
+  title: "S3 Transfer Acceleration"
+  english: "전송 가속"
+  abbreviations: []
+  term_aliases: []
+  description: "엣지 위치와 최적화된 네트워크 경로를 통해 S3와의 장거리 전송을 가속하는 기능. 먼 지역에서 중앙 버킷으로 업로드할 때 검토한다. CloudFront의 콘텐츠 캐싱과 목적이 다르며, 실제 경로에서 효과를 측정한다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-4]
+  sources:
+  - title: "S3 Transfer Acceleration 공식 문서"
+    url: https://docs.aws.amazon.com/AmazonS3/latest/userguide/transfer-acceleration.html
+  draft: false
+
+- id: aws-datasync
+  title: "AWS DataSync"
+  english: ""
+  abbreviations: []
+  term_aliases: []
+  description: "온프레미스와 AWS 스토리지 등 사이의 파일·객체 데이터 이동을 자동화하는 서비스. NFS·SMB 파일 서버와 S3·EFS·FSx 등 지원 위치를 연결한다. 대량 이전이나 반복적인 데이터 복사에 사용한다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-4]
+  sources:
+  - title: "AWS DataSync 공식 문서"
+    url: https://docs.aws.amazon.com/datasync/latest/userguide/what-is-datasync.html
+  draft: false
+
+- id: aws-storage-gateway
+  title: "AWS Storage Gateway"
+  english: ""
+  abbreviations: []
+  term_aliases: []
+  description: "온프레미스 애플리케이션과 AWS 스토리지를 연결하는 하이브리드 스토리지 서비스. 파일·볼륨·테이프 게이트웨이 등 용도에 맞는 유형을 선택한다. 단발성 복사보다 기존 스토리지 접근 방식의 연장에 초점을 둔다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-4]
+  sources:
+  - title: "AWS Storage Gateway 공식 문서"
+    url: https://docs.aws.amazon.com/storagegateway/
+  draft: false
+
+- id: aurora-serverless-v2
+  title: "Aurora Serverless v2"
+  english: ""
+  abbreviations: []
+  term_aliases: []
+  description: "워크로드에 맞춰 Aurora 데이터베이스의 컴퓨팅 용량을 자동 조정하는 구성. 최소·최대 용량 범위와 엔진·버전 지원을 확인한다. 용량 확장이 잘못된 쿼리나 잠금 경합까지 해결하지는 않는다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-4]
+  sources:
+  - title: "Aurora Serverless v2 공식 문서"
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html
+  draft: false
+
+- id: amazon-elasticache
+  title: "Amazon ElastiCache"
+  english: ""
+  abbreviations: []
+  term_aliases: []
+  description: "인메모리 데이터 저장소를 제공하는 관리형 서비스. 반복 조회·세션·캐시 등에 사용한다. 캐시 적중 시 DB 접근을 줄일 수 있지만 만료·무효화·장애 시 동작을 설계해야 한다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-4]
+  sources:
+  - title: "Amazon ElastiCache 공식 문서"
+    url: https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Strategies.html
+  draft: false
+
+- id: cache-aside
+  title: "Cache Aside"
+  english: "Lazy Loading"
+  abbreviations: []
+  term_aliases: []
+  description: "애플리케이션이 캐시를 먼저 조회하고, 없으면 원본에서 읽어 캐시에 저장하는 패턴. 실제로 읽힌 데이터 위주로 채워진다. 캐시 미스에서는 원본 조회가 필요하며 오래된 데이터의 갱신 정책이 중요하다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-4]
+  sources:
+  - title: "Cache Aside 공식 문서"
+    url: https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Strategies.html
+  draft: false
+
+- id: aws-dms
+  title: "AWS DMS"
+  english: "Database Migration Service"
+  abbreviations: []
+  term_aliases: []
+  description: "데이터베이스 이전과 지속적인 데이터 복제를 지원하는 서비스. 동종·이기종 이전을 검토할 수 있다. 이기종 이전은 스키마 변환과 애플리케이션 호환성을 별도로 확인한다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-4]
+  sources:
+  - title: "AWS DMS 공식 문서"
+    url: https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html
+  draft: false
+
+- id: amazon-dynamodb
+  title: "Amazon DynamoDB"
+  english: ""
+  abbreviations: []
+  term_aliases: []
+  description: "키-값·문서 모델을 지원하는 관리형 NoSQL 데이터베이스. 예상 조회 패턴을 바탕으로 키를 설계한다. 관계형 DB의 조인을 그대로 옮기기보다 필요한 접근을 효율적으로 지원하도록 모델링한다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-4]
+  sources:
+  - title: "Amazon DynamoDB 공식 문서"
+    url: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-partition-key-design.html
+  draft: false
+
+- id: dynamodb-partition-key
+  title: "DynamoDB Partition Key"
+  english: "파티션 키"
+  abbreviations: []
+  term_aliases: []
+  description: "DynamoDB에서 데이터 배치와 기본 접근 경로를 결정하는 키. 소수 키에 요청이 몰리는 핫 파티션을 피한다. 키 종류가 많아도 실제 요청이 한 키에 집중되면 병목이 생긴다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-4]
+  sources:
+  - title: "DynamoDB Partition Key 공식 문서"
+    url: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-partition-key-design.html
+  draft: false
+
+- id: dynamodb-dax
+  title: "DynamoDB Accelerator"
+  english: ""
+  abbreviations: [DAX]
+  term_aliases: []
+  description: "DynamoDB 읽기를 가속하는 관리형 인메모리 캐시. 반복되는 최종적 일관성 읽기에 적합하다. 강한 일관성 읽기는 DynamoDB로 전달되며 캐시 결과로 처리하지 않는다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-4]
+  sources:
+  - title: "DynamoDB Accelerator 공식 문서"
+    url: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.html
+  draft: false
+
+- id: amazon-cloudfront
+  title: "Amazon CloudFront"
+  english: "Content Delivery Network · CDN"
+  abbreviations: []
+  term_aliases: []
+  description: "엣지 위치를 통해 콘텐츠를 전달하는 서비스. 캐시 가능한 응답을 사용자 가까이에서 제공해 원본 부하를 줄인다. 캐시 키·TTL·캐시 가능 여부가 적중률에 영향을 준다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-4]
+  sources:
+  - title: "Amazon CloudFront 공식 문서"
+    url: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html
+  draft: false
+
+- id: aws-global-accelerator
+  title: "AWS Global Accelerator"
+  english: ""
+  abbreviations: []
+  term_aliases: []
+  description: "AWS 글로벌 네트워크를 사용해 애플리케이션 엔드포인트로의 경로를 최적화하는 서비스. 고정 Anycast IP와 TCP·UDP 기반 애플리케이션 가속이 주요 단서다. 콘텐츠 캐시를 제공하는 서비스는 아니다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-4]
+  sources:
+  - title: "AWS Global Accelerator 공식 문서"
+    url: https://docs.aws.amazon.com/global-accelerator/latest/dg/what-is-global-accelerator.html
+  draft: false
+
+- id: ec2-placement-group
+  title: "EC2 Placement Group"
+  english: "배치 그룹"
+  abbreviations: []
+  term_aliases: []
+  description: "EC2 인스턴스의 배치 전략을 지정하는 기능. Cluster는 단일 AZ에서 노드 간 통신 성능, Spread·Partition은 하드웨어 장애의 영향 분리에 초점을 둔다. AZ는 Availability Zone."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-4]
+  sources:
+  - title: "EC2 Placement Group 공식 문서"
+    url: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html
+  draft: false
+
+- id: ec2-ena
+  title: "Elastic Network Adapter"
+  english: ""
+  abbreviations: [ENA]
+  term_aliases: []
+  description: "지원 EC2 인스턴스에서 향상된 네트워킹을 제공하는 인터페이스. 더 높은 대역폭과 패킷 처리 성능, 낮은 지연에 도움이 된다. 인스턴스 유형과 드라이버 지원을 확인한다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-4]
+  sources:
+  - title: "Elastic Network Adapter 공식 문서"
+    url: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking.html
+  draft: false
+
+- id: ec2-efa
+  title: "Elastic Fabric Adapter"
+  english: ""
+  abbreviations: [EFA]
+  term_aliases: []
+  description: "EC2에서 분산 HPC·머신러닝 통신을 지원하는 네트워크 인터페이스. 노드 간 통신이 많은 작업에 사용한다. 지원 인스턴스와 애플리케이션 통신 라이브러리 구성이 필요하다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-4]
+  sources:
+  - title: "Elastic Fabric Adapter 공식 문서"
+    url: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html
+  draft: false
+
+- id: kinesis-data-streams
+  title: "Amazon Kinesis Data Streams"
+  english: ""
+  abbreviations: []
+  term_aliases: []
+  description: "연속적으로 발생하는 데이터를 수집하고 소비자가 처리하도록 제공하는 스트리밍 서비스. 실시간 처리와 여러 소비자의 독립적인 읽기에 사용한다. 데이터 보존 기간 안에서 재처리하는 구조를 만들 수 있다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-4]
+  sources:
+  - title: "Amazon Kinesis Data Streams 공식 문서"
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  draft: false
+
+- id: amazon-data-firehose
+  title: "Amazon Data Firehose"
+  english: ""
+  abbreviations: []
+  term_aliases: []
+  description: "스트리밍 데이터를 지원 목적지로 전달하는 관리형 서비스. S3·Redshift 등으로 적재할 때 사용한다. 목적지별 버퍼링·변환 조건을 확인하며 즉시 전달을 일괄 보장하는 것으로 보지 않는다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-4]
+  sources:
+  - title: "Amazon Data Firehose 공식 문서"
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  draft: false
+
+- id: amazon-msk
+  title: "Amazon MSK"
+  english: "Managed Streaming for Apache Kafka"
+  abbreviations: []
+  term_aliases: []
+  description: "Apache Kafka 클러스터 운영을 관리하는 서비스. Kafka API·도구·기존 생태계와의 호환이 필요할 때 고려한다. 파티션·소비자·데이터 보존 등 애플리케이션 설계는 여전히 필요하다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-4]
+  sources:
+  - title: "Amazon MSK 공식 문서"
+    url: https://docs.aws.amazon.com/msk/latest/developerguide/what-is-msk.html
+  draft: false
+
+- id: aws-glue
+  title: "AWS Glue"
+  english: ""
+  abbreviations: []
+  term_aliases: []
+  description: "데이터 탐색·준비·변환을 지원하는 서버리스 데이터 통합 서비스. ETL(Extract, Transform, Load) 작업으로 데이터를 추출·변환·적재한다. 분석용 포맷 변환과 정기 데이터 처리에 사용한다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-4]
+  sources:
+  - title: "AWS Glue 공식 문서"
+    url: https://docs.aws.amazon.com/glue/latest/dg/what-is-glue.html
+  draft: false
+
+- id: amazon-emr
+  title: "Amazon EMR"
+  english: ""
+  abbreviations: []
+  term_aliases: []
+  description: "Spark·Hadoop 등으로 대규모 데이터를 처리하는 관리형 플랫폼. 분산 처리 프레임워크와 실행 환경에 대한 제어가 필요할 때 고려한다. 실행 방식에 따라 클러스터 관리 범위가 달라진다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-4]
+  sources:
+  - title: "Amazon EMR 공식 문서"
+    url: https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-what-is-emr.html
+  draft: false
+
+- id: amazon-athena
+  title: "Amazon Athena"
+  english: ""
+  abbreviations: []
+  term_aliases: []
+  description: "S3 데이터 등을 SQL로 조회할 수 있는 서버리스 분석 서비스. 별도 DB에 적재하지 않는 대화형 조회에 적합하다. 분석하는 파일의 형식·파티션·스캔량이 성능에 영향을 준다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-4]
+  sources:
+  - title: "Amazon Athena 공식 문서"
+    url: https://docs.aws.amazon.com/athena/latest/ug/what-is.html
+  draft: false
+
+- id: amazon-redshift
+  title: "Amazon Redshift"
+  english: ""
+  abbreviations: []
+  term_aliases: []
+  description: "대규모 분석 쿼리를 위한 관리형 데이터 웨어하우스. 집계·분석 중심 워크로드에 사용한다. Provisioned와 Serverless 옵션이 있으며 트랜잭션 처리용 DB와 요구가 다르다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-4]
+  sources:
+  - title: "Amazon Redshift 공식 문서"
+    url: https://docs.aws.amazon.com/redshift/latest/mgmt/welcome.html
+  draft: false
+
+- id: aws-lake-formation
+  title: "AWS Lake Formation"
+  english: ""
+  abbreviations: []
+  term_aliases: []
+  description: "데이터 레이크의 접근 권한과 거버넌스를 관리하는 서비스. S3 데이터와 Glue Data Catalog를 연계해 세밀한 접근을 관리한다. 데이터를 직접 조회하는 쿼리 엔진은 아니다."
+  tags: [클라우드]
+  related_terms: []
+  related_posts: [/posts/aws-saa-4]
+  sources:
+  - title: "AWS Lake Formation 공식 문서"
+    url: https://docs.aws.amazon.com/lake-formation/latest/dg/what-is-lake-formation.html
   draft: false
